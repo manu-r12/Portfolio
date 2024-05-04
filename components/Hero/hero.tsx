@@ -3,7 +3,8 @@ import React, { useEffect }  from "react";
 import Particles from "@/components/Particles/particles";
 import styles from './heroBg.module.scss'
 import { motion } from "framer-motion";
-import Player from "../Spotify-MiniPlayer/player";
+import Player from "../SpotifyMiniPlayer/player";
+import Logo from "../Logo/logo";
 
 
 
@@ -90,6 +91,7 @@ export default function HeroBg() {
 
   return (
     <div className={styles.container}>
+        <Logo/>
         <div>
         <motion.div className={styles.innerContainer}>
             <div className={styles.inner}>

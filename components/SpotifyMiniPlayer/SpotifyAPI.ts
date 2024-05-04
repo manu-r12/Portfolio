@@ -9,7 +9,8 @@ const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 
-export interface SpotifyData {
+export interface CurrentMusic 
+{
     is_playing: boolean;
     item: {
       name: string;
@@ -23,10 +24,11 @@ export interface SpotifyData {
       };
     };
     currently_playing_type: string;
-  }
+}
 
 
-export interface LastPlayedSong {
+export interface LastPlayedSong 
+{
     id: string;
     name: string;
     artists: Array<{ name: string }>;
@@ -37,10 +39,10 @@ export interface LastPlayedSong {
     external_urls: {
       spotify: string;
     };
-    // Add any other properties you need
-  }
+}
  
-  export const getAccessToken = async () => {
+export const getAccessToken = async () => 
+  {
     const response = await axios.post(TOKEN_ENDPOINT, querystring.stringify({
       grant_type: 'refresh_token',
       refresh_token,
@@ -52,38 +54,36 @@ export interface LastPlayedSong {
     });
   
     return response.data;
-  };
+};
 
   
-  export const getNowPlaying = async (access_token: string): Promise<SpotifyData | null> => {
+export const getNowPlaying = async ( access_token: string ) : Promise < CurrentMusic | null > => 
+{
     console.log(access_token)
     try {
-      const response = await axios.get<SpotifyData>(NOW_PLAYING_ENDPOINT, {
+      const response = await axios.get<CurrentMusic>(NOW_PLAYING_ENDPOINT, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
       });
   
-      // If response status > 400 means there was some error while fetching the required information
       if (response.status > 400) {
         throw new Error('Unable to Fetch Song');
-      } else if (response.status === 204) { // The response was fetched but there was no content
+      } else if (response.status === 204) {
         throw new Error('Currently Not Playing');
       }
-  
-      // Extracting the required data from the response into separate variables
-      const song = response.data;
+        const song = response.data;
       return song
     } catch (error) {
       console.log("Error:", error);
       return null
     }
-  };
+};
 
 
 
- export const getRecentlyPlayed = async (accessToken: string): Promise<LastPlayedSong | null> => {
-    // console.log(accessToken)
+ export const getRecentlyPlayed = async (accessToken: string) : Promise < LastPlayedSong | null > => 
+ {
     try {
       const response = await axios.get('https://api.spotify.com/v1/me/player/recently-played', {
         headers: {

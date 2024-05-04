@@ -22,7 +22,8 @@
 
     p{
         font-family: "Poppins", sans-serif;
-        font-weight: 300;
+        font-weight: 500;
+        color: rgb(170, 170, 170);
         font-size: 11px;
     }
 }
@@ -71,6 +72,7 @@
 .bars {
     display: flex;
     justify-content: center;
+    // margin-left: 50px;
     align-items: center;
     overflow-x: hidden;
 }
@@ -81,7 +83,7 @@
     width: 2.6px;
     margin: 0px 2px;
     border-radius: 5px;
-    animation: sound 0ms -600ms linear infinite alternate;
+    animation: sound 12s  infinite alternate;
 }
 
 @keyframes sound {

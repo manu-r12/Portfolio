@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react'
 import styles from './player.module.scss'
 import Image from 'next/image'
 import { BsSpotify } from 'react-icons/bs'
-import {  LastPlayedSong, SpotifyData, getAccessToken, getNowPlaying, getRecentlyPlayed } from './spotifyAPI'
+import {  LastPlayedSong, CurrentMusic, getAccessToken, getNowPlaying, getRecentlyPlayed } from './SpotifyAPI'
+import { clipText } from '@/Utils/TextCliper'
 
 
 const Player = () => {
 
-    const [currentSong, setCurrentSong] = useState<SpotifyData | null>()
+    const [currentSong, setCurrentSong] = useState<CurrentMusic | null>()
     const [lastPlayedSong, setLastPlayedSong] = useState<LastPlayedSong | null>()
 
 
     useEffect(() => {
         const fetchData = async () => {
+            
            const {access_token} = await getAccessToken()
+
            const currentSongData = await getNowPlaying(access_token)
            const lastPlayed = await getRecentlyPlayed(access_token)
-           console.log(currentSongData)
-           console.log("Last Played = >", lastPlayed)
+  
            setCurrentSong(currentSongData)
            setLastPlayedSong(lastPlayed)
   
@@ -31,17 +33,18 @@ const Player = () => {
   return (
     <div className={styles.container}>
         <div className='flex flex-row items-start gap-20 justify-between pr-3 pl-3 pt-3'>
-            <BsSpotify className='ml-1' size={"1.3em"} />
+            <span className='flex gap-2 items-start text-sm text-green-400'><BsSpotify color='#1bd760' className='ml-1' size={"1.3em"} />Spotify</span>
             <p>Currently Playing</p>
         </div>
-        <div className='p-4 flex flex-row items-center gap-4'>
+        {/* <div className='w-full h-1 mt bg-slate-300'/> */}
+        <div className='p-4 flex flex-row  items-center gap-4'>
             <div className='h-11 w-11 relative object-fill overflow-hidden'>
-                {currentSong && <Image src={currentSong?.item.album.images[0].url} fill alt='ts'/>}
+                {currentSong && <Image src={currentSong?.item.album.images[0].url} fill alt='song_img'/>}
             </div>
             <div className={styles.artistInfo}>
-                <div>
-                    <p>{currentSong?.item.name}</p>
-                    <p>By Taylor Swift</p>
+                <div className='w-40'>
+                    <p>{currentSong && clipText(currentSong?.item.name)}</p>
+                    <p>By {currentSong?.item.album.artists[0].name}</p>
                 </div>
                 <div>
                 <div className={styles.bars}>
