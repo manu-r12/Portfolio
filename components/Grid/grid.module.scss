@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    pointer-events: none;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+
+
+    .gridContainer{
+
+        justify-content: space-between;
+        width: 1628px;
+        height: 100%;
+        padding-left: 64px;
+        padding-right: 64px;
+        display: flex;
+
+        .grid{
+            border-right: 1px solid rgba(255, 255, 255, .1);
+            height: 100%;
+        }
+    }
+
+}

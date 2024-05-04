@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 1);
+    // box-shadow: 0 8px 32px 0 rgba(114, 122, 230, 0.16);
+    backdrop-filter: blur( 12px );
+    // -webkit-backdrop-filter: blur( 12px );
+    border-radius: 50px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 400px;
+    padding: 0 30px;
+    gap: 30px;
+    height: 70px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 121;
+    bottom: -2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    p{
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 1px;
+        font-weight: 300;
+        cursor: pointer;
+    }
+}
