@@ -11,9 +11,6 @@ import Logo from "../Logo/logo";
 
 export default function HeroBg() {
 
-
-   
-
     const transitions = {duration: 1, ease: [0.76, 0, 0.24, 1]}
 
     const translate = {
@@ -96,21 +93,27 @@ export default function HeroBg() {
         <motion.div className={styles.innerContainer}>
             <div className={styles.inner}>
                 <div className={styles.text}>
-                    {text1.map((word , i) =>{
-                        return  <p key={i} className={styles.myIntro}>{getChar(word)}</p>
-                    
-                    })}
-                    <div className={styles.imageOfMyself}/>
-                </div>
-                <div className={styles.text}>
-                    {text2.map((word , i) =>{
-                        return  <p key={i} className={styles.myIntro}>{getChar(word, true)}</p>
-                    })}
-                    <motion.p variants={translateSimple} 
+                <motion.p variants={translateSimple} 
                     initial="initial"
                     animate="enter" 
                     exit="exit"  
-                    className={`${styles.myIntro} ${styles.gradientBg}`}>Programmer</motion.p>
+                    className={`${styles.myIntro}`}>I am Manu</motion.p>
+                    <div className={styles.imageOfMyself}/>
+                </div>
+                <div className={styles.text}>
+                <motion.p variants={translateSimple} 
+                    initial="initial"
+                    animate="enter" 
+                    exit="exit"  
+                    className={`${styles.myIntro}`}>A Passionate 
+                    <span className={styles.blured}>
+                        <motion.span variants={translateSimple} 
+                        initial="initial"
+                        animate="enter" 
+                        exit="exit"  
+                        className={`${styles.gradientText}`}> Programmer</motion.span>
+                    </span>
+                    </motion.p>
                 </div>
             </div>
             <motion.div className={styles.bioText}
@@ -119,16 +122,15 @@ export default function HeroBg() {
                  animate="enter" 
                  exit="exit" 
                 >
-                <p>I love building stuffs!</p>
+                <p className="w-[590px]  tracking-wider">
+                    “when you don't create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create"
+                    </p>
                 {/* <p>I'm interested in building iOS and Web apps, coding videogames, and training machine learning models</p> */}
             </motion.div>
         </motion.div>
-       
-        </div>
+     </div>
         <div className={styles.heroBackground}></div>
-       
-            <Player/>
-     
+        <Player/>
     </div>
     
   );

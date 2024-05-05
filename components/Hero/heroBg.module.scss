@@ -18,7 +18,7 @@
   bottom: 0%;
   right: 0%;
   z-index: -2;
-  opacity: 1;
+  opacity: 0;
 
 }
 
@@ -31,14 +31,10 @@
 
 }
 
-
-
 .myIntro{
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 5.5rem;
-  display: flex;
-  margin-left: 15px;
+  font-size: 5rem;
 }
 
 .bioText{
@@ -46,45 +42,51 @@
   bottom: 15%;
 
   p{
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-size: 1.2rem;
+    font-family: "Manrope", sans-serif;
+    font-weight: 200;
+    font-size: 1.3rem;
     text-align: center;
+    margin-bottom: 40px;
+
  
   }
 }
 
 
-.gradientBg{
+.gradientText{
   font-family:  "Poppins" ,sans-serif;
-  font-weight: 900;
+  font-weight: 700;
   position: relative;
   z-index: 0;
   overflow: hidden;
   width: 600px;
   border-radius: 12px;
-  background: linear-gradient(-80deg,  #9d00ff, #0099f8, #5ec6cb, #db54f3);
+  background: linear-gradient(-80deg,  #a267e9, #5659f0, #9a53d9);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientAnimation 5s ease-in infinite;
+  
 
-}    
+} 
 
 
 
-.myIntroSecondWord{
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 5.5rem;
-  display: flex;
-//   background: linear-gradient(40deg,  #5ec6cb, #164b95);
-//   background-size: 400% 400%;
-//   -webkit-background-clip: text;
-//   background-clip: text;
-//   -webkit-text-fill-color: transparent;
+
+.video {
+  position: absolute;
+  background-color: black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+  z-index: -12;
 }
+
+
+
 
 
 .inner{
@@ -93,15 +95,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-bottom: 100px;
  
   // margin-top: 250px;
-
-
   .text{
 
     display: flex;
     align-items: center;
- 
+    text-align: center;
  
   }
   
@@ -112,10 +113,10 @@
   height: 110px;
   margin-left: 20px;
   border-radius: 110px;
-  background-image: url("/imgs/me4.jpeg");
+  background-image: url("/imgs/me3.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0px -145px;
+  background-position: 0px -215px;
   
   // animation: slide 5s infinite alternate;
 }
@@ -132,5 +133,59 @@
   }
   100% {
       background-position: 0% 50%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .myIntro{
+    font-size: 3rem;
+    text-align: center;
+  }
+
+
+
+  .imageOfMyself{
+    display: none;
+    visibility: hidden;
+    
+    // animation: slide 5s infinite alternate;
+  }
+
+
+  .bioText{  
+    p{
+      width: 300px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 300;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 70px;
+      color: rgb(155, 154, 154);
+    }
+  }
+  
+}
+
+@media (max-width: 440px) {
+  .myIntro{
+    font-size: 3.1rem;
+    text-align: center;
+  }
+
+  .bioText{  
+    p{
+      width: 300px;
+      font-family: "Manrope", sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-bottom: 90px;
+      color: rgb(187, 186, 186);
+    }
+  }
+
+  .heroBackground{
+    opacity: 0.4;
   }
 }

@@ -1,7 +1,7 @@
 .circle {
     position: absolute;
-    width: 150px; 
-    height: 150px; 
+    width: 100px; /* Further reduced width */
+    height: 100px; /* Further reduced height */
     border-radius: 50vmax;
     display: flex;
     align-items: center;
@@ -12,10 +12,10 @@
 
 .logo {
     position: absolute;
-    width: 80px; 
-    height: 80px; 
+    width: 50px; /* Further reduced width */
+    height: 50px; /* Further reduced height */
     background: url("/icons/star.png");
-    background-size: 100px; 
+    background-size: 70px; /* Further reduced size */
     border-radius: 50vmax;
     background-position: center;
     animation: textRotation_reverse 20s linear infinite;
@@ -27,7 +27,7 @@
     height: 100%;
     font-family: "Poppins";
     color: #ffffff;
-    font-size: 15px; /* Reduced font size */
+    font-size: 10px; /* Further reduced font size */
     animation: textRotation 20s linear infinite;
 }
 
@@ -47,5 +47,20 @@
     position: absolute;
     left: 50%;
     font-size: 0.8em; /* Reduced font size */
-    transform-origin: 0 75px; /* Adjusted transform origin */
+    transform-origin: 0 50px; /* Adjusted transform origin */
+}
+
+
+@media (max-width: 768px) {
+    .circle {
+        position: absolute;
+        width: 100px; /* Further reduced width */
+        height: 100px; /* Further reduced height */
+        border-radius: 50vmax;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 38%;
+        top: 16%;
+    }
 }
