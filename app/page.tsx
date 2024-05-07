@@ -6,7 +6,7 @@ import Grid from "@/components/UI/Grid/grid";
 import Experience from "@/components/Experience/experience";
 import Lenis from '@studio-freight/lenis'
 import About from "@/components/About/about";
-import SVG_Circle from "@/animations/SVG-Circle";
+import Skills from "@/components/Skills/skills";
 
 
 
@@ -35,9 +35,9 @@ export default function Home() {
     {/* ------------- */}
 
       <Hero/>
+      <Skills/>
       <Experience/>
       <About/>
-      <SVG_Circle/>
     </main>
   );
 }

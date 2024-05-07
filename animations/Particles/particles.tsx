@@ -40,15 +40,13 @@ export default function Particles({ className } : {className?: string}) {
             positions[i + 2] = (Math.random() - 0.5) * 10;
 
             if (i % 2 === 0) {
-                // Set color for every even index particle
+                colors[i] = 86 / 255; // Red component
+                colors[i + 1] = 89 / 255; // Green component
+                colors[i + 2] = 240 / 255; // Blue component
+            } else {
                 colors[i] = 255 / 255; // Red component
                 colors[i + 1] = 255 / 255; // Green component
-                colors[i + 2] = 255; // Blue component
-            } else {
-                // Set color for every odd index particle
-                colors[i] = 66 / 255; // Red component
-                colors[i + 1] = 118 / 255; // Green component
-                colors[i + 2] = 195 / 255; // Blue component
+                colors[i + 2] = 255 / 255; // Blue component
             }
         }
 
@@ -88,8 +86,8 @@ export default function Particles({ className } : {className?: string}) {
             particleGeometry.attributes.position.needsUpdate = true;
 
             // Rotate particles towards the mouse
-            targetMouse.x += (mouse.x * 0.2 - targetMouse.x) * 0.02;
-            targetMouse.y += (-mouse.y * 0.2 - targetMouse.y) * 0.02;
+            targetMouse.x += (mouse.x * 0.2 - targetMouse.x) * 1.12;
+            targetMouse.y += (-mouse.y * 0.2 - targetMouse.y) * 1.12;
 
             gsap.to(particles.rotation, {
                 x: targetMouse.x,

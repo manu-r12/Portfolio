@@ -1,0 +1,45 @@
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    // padding-top: 40px;
+    // border-top: 1px  solid rgba(255, 255, 255, .1);
+  }
+  
+  
+.svgCircle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+}  
+
+
+.innerCircleText{
+    position: absolute;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.lineMask{
+    overflow: hidden;
+  }
+  
+.lineMask p{
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 4.4rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    padding: 0 40px;
+  
+  }
+
+
