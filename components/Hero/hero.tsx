@@ -1,10 +1,12 @@
 "use client"
 import React, { useEffect }  from "react";
-import Particles from "@/components/Particles/particles";
-import styles from './heroBg.module.scss'
+import Particles from "@/animations/Particles/particles";
+import styles from './hero.module.scss'
 import { motion } from "framer-motion";
 import Player from "../SpotifyMiniPlayer/player";
 import Logo from "../Logo/logo";
+import { getCurrentTime } from "@/hooks/getCurrentTime";
+import Blobs from "../Blob/blob";
 
 
 
@@ -12,6 +14,8 @@ import Logo from "../Logo/logo";
 export default function HeroBg() {
 
     const transitions = {duration: 1, ease: [0.76, 0, 0.24, 1]}
+    
+    console.log(getCurrentTime())
 
     const translate = {
         initial: {
@@ -131,6 +135,10 @@ export default function HeroBg() {
      </div>
         <div className={styles.heroBackground}></div>
         <Player/>
+        <Blobs type="v3"/>
+        <Blobs type="v2"/>
+        <Blobs type="v1"/>
+        <Particles className={styles.particlesBG}/>
     </div>
     
   );

@@ -26,7 +26,7 @@ export default function Particles({ className } : {className?: string}) {
         const particles = new THREE.Group();
         const particleGeometry = new THREE.BufferGeometry();
         const particleMaterial = new THREE.PointsMaterial({
-            size: 0.012,
+            size: 0.01,
             vertexColors: true, // Enable vertex colors
         });
 

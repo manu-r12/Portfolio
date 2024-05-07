@@ -15,10 +15,11 @@
   }
   .v2{
     left: -20%;
-    top: 10%;
+    top: 17%;
     width: 30%;
     height: 40%;
-    background: conic-gradient(from 2.35rad, hsl(29, 100%, 39%), hsla(234, 94%, 46.1%, 0.5));
+    z-index: -2;
+    background: conic-gradient(from 2.35rad, hsl(288, 76%, 63%), hsla(234, 94%, 46.1%, 0.5));
   }
   .v3{
     left: 10%;
@@ -27,3 +28,4 @@
     height: 50%;
     background: conic-gradient(hsla(0, 0%, 24%, 1), hsla(234, 60%, 62%, 0.323));
   }
+

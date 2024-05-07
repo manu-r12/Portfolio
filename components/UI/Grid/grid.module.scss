@@ -44,3 +44,21 @@
         background-position: 0% 50%;
     }
   }
+
+
+  @media (max-width: 440px) {
+
+    .gridContainer{
+
+        gap: 110px;
+        display: flex;
+
+        .grid{
+            border-right: 1px solid rgba(255, 255, 255, .1);
+            height: 100%;
+            
+        }
+    }
+    
+  }
+  

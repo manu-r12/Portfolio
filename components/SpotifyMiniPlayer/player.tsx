@@ -24,8 +24,10 @@ const Player = () => {
            setLastPlayedSong(lastPlayed)
   
         };
-    
-        fetchData();
+        // setInterval(() => {
+            fetchData();
+        //   }, 1000);
+       
       }, []);
 
 

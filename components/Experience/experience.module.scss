@@ -1,0 +1,115 @@
+.container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  // margin-top: 160px;
+  padding-top: 40px;
+  border-top: 1px  solid rgba(255, 255, 255, .1);
+}
+
+
+
+
+.lineMask{
+    overflow: hidden;
+  }
+  
+.lineMask p{
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 4.4rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    padding: 0 40px;
+  
+  }
+
+
+
+
+  .workExpInfoContainer{
+    margin: 0px;
+    border-radius: 10px;
+    border: 0.9px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    height: 230px;
+    cursor: pointer;
+
+    
+
+    .orgNameAndYear{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+
+      .orgName{
+        font-family: "Poppins", sans-serif;
+        font-weight: 400;
+        font-size: 2.9rem;
+        color: #5659f0;
+        transition: all .4s;
+
+        &:hover{
+        color: #fff;
+
+        }
+      }
+
+      
+
+      .workingPeriod{
+        font-family: "Poppins", sans-serif;
+        font-weight: 200;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.717);
+      }
+
+      .role{
+        font-family: "Poppins", sans-serif;
+        font-weight: 200;
+        font-size: 1.03rem;
+        color: rgba(255, 255, 255, 0.717);
+        // // background: linear-gradient(45deg,  #FB36F4, #0100EC);
+        // background-size: 400% 400%;
+        // -webkit-background-clip: text;
+        // background-clip: text;
+        // -webkit-text-fill-color: transparent;
+      }
+    }
+
+    .description{
+      padding:  20px;
+
+    }
+  }
+
+  
+.description{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.717);
+  }
+
+}  
+// #ff7e5f 0%, #feb47b 50%, #fff 100%);
+  // linear-gradient(-80deg,  #a267e9, #5659f0, #9a53d9);
+
+  .heroBackground{
+    background-image: radial-gradient(circle at 50% 0, #050d3d, #000 80%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: -2;
+    rotate: 160deg;
+    opacity: 0.5;
+  }  

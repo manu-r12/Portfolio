@@ -5,8 +5,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
     
   }
+
+
+  .particlesBG {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+  
+    > * {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }  
 
 .heroBackground{
   background-image: radial-gradient(circle at 50% 0, #050d3d, #000 80%);
@@ -18,7 +35,7 @@
   bottom: 0%;
   right: 0%;
   z-index: -2;
-  opacity: 0;
+  opacity: 0.2;
 
 }
 
@@ -43,8 +60,8 @@
 
   p{
     font-family: "Manrope", sans-serif;
-    font-weight: 200;
-    font-size: 1.3rem;
+    font-weight: 100;
+    font-size: 1.1rem;
     text-align: center;
     margin-bottom: 40px;
 
@@ -86,7 +103,7 @@
 }
 
 
-
+// #0100EC, #FB36F4
 
 
 .inner{
@@ -109,14 +126,14 @@
 }
 
 .imageOfMyself{
-  width: 330px;
-  height: 110px;
+  width: 295px;
+  height: 95px;
   margin-left: 20px;
   border-radius: 110px;
   background-image: url("/imgs/me3.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0px -215px;
+  background-position: 0px -190px;
   
   // animation: slide 5s infinite alternate;
 }
