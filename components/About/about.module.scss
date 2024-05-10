@@ -26,17 +26,7 @@
 
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}  
+
 
 
 
@@ -78,16 +68,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 140px;
+    margin-top: 160px;
+    flex-direction: column;
+    gap: 40px;
   }
 
   .innerAboutMeContainer{
     width: 100%;
     display: flex;
-    padding: 60px;
+    padding: 0 60px;
 
     .aboutMeText{
-      width: 50%;
+      width: 70%;
       height: 500px;
       display: flex;
       justify-content: center;
@@ -101,8 +93,9 @@
 
 
         p{
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.717);
+          color: #fff;
+          font-size: 2.9rem;
+          line-height: 61px;
           font-family: "Poppins", sans-serif;
           font-weight: 300;
           letter-spacing: 1.09px;
@@ -123,9 +116,54 @@
         padding: 25px;
         border-radius: 10px;
         border: 1.9px solid rgba(255, 255, 255, 0.2);      }
+
+
+
     }
-
-
-
-
   }
+
+
+  .outerAboutMeConatiner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 60px;
+
+  
+
+    .textBoxContainer{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+
+      .innerTextBoxContainer{
+        width: 40%;
+
+        p{
+          color: #fff;
+          font-size: 1rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 300;
+          letter-spacing: 1.09px;
+          line-height: 31px;
+        }
+      }
+
+    }
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }  
