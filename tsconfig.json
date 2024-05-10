@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Beam/beam.js", "components/Reflect/reflect.js", "components/Hero/hero.tsx", "app/page.tsx", "components/Cube/scene.tsx", "components/Cube/cube.jsx", "components/Animated-Blob/Blob.js", "components/Animated-Blob/vertexShader.js", "components/Animated-Blob/fragmentShader.js", "components/UI/Title/textReveal.jsx", "components/About/about.jsx", "animations/Blob/index.jsx", "animations/blob.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Beam/beam.js", "components/Reflect/reflect.js", "components/Hero/hero.tsx", "app/page.tsx", "components/Cube/scene.tsx", "components/Cube/cube.jsx", "components/Animated-Blob/Blob.js", "components/Animated-Blob/vertexShader.js", "components/Animated-Blob/fragmentShader.js", "components/UI/Title/textReveal.jsx", "components/About/about.jsx", "animations/Blob/index.jsx", "animations/blob.jsx", "components/Skills/ui-elements/skill-card.jsx"],
   "exclude": ["node_modules"]
 }

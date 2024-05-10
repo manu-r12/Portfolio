@@ -1,72 +1,65 @@
 import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { SplitText } from 'gsap-trial/SplitText'
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionValue, motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import styles from './about.module.scss';
-import { useGSAP } from '@gsap/react';
 import Blobs from '../Blob/blob';
+import Image from 'next/image';
 
-gsap.registerPlugin(SplitText)
 
 const About = () => {
-    const boldTitle = useRef<HTMLHeadingElement>(null);
-    const boldTitleLeft = useRef<HTMLSpanElement>(null);
-    const boldTitleRight = useRef<HTMLSpanElement>(null);
+    const target = useRef<HTMLDivElement | null>(null)    
+    const { scrollYProgress } = useScroll();
 
-    useGSAP(() => {
-        gsap.registerPlugin(ScrollTrigger, SplitText);
+    const x = useTransform(scrollYProgress, [0, 1], [-510, 600]);
+    const y = useTransform(scrollYProgress, [0, 1], [150, -190]);
+    const getNegativeX  = () => {
+        return useTransform(x, value => -value);
+        
+    }
 
-        const splitTextLeft = new SplitText(boldTitleLeft.current, {
-            type: 'chars',
-        });
-        const splitTextRight = new SplitText(boldTitleRight.current, {
-            type: 'chars',
-        });
+ 
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: boldTitle.current,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: true,
-                toggleActions: 'play none none reverse',
-            },
-        });
-
-        // BoldText
-        tl.fromTo(
-            boldTitleLeft.current,
-            {
-                xPercent: -50,
-            },
-            {
-                xPercent: -10,
-            },
-            0
-        );
-        tl.fromTo(
-            boldTitleRight.current,
-            {
-                xPercent: 50,
-            },
-            {
-                xPercent: 10,
-            },
-            0
-        );
-    });
 
     return (
-        <div className={styles.container}>
-            <h2 className={styles.boldTitle} ref={boldTitle}>
-                <span className={styles.boldTitleLeft} ref={boldTitleLeft}>
-                    A Little Bit
-                </span>
-                <span>About</span>
-                <span className={styles.boldTitleRight} ref={boldTitleRight}>
-                    Manu
-                </span>
-            </h2>
+        <div ref={target} className={styles.container}>
+            <div className={styles.innerContainer}>
+
+                <div className={styles.boldTitle}>
+                    <motion.h1 style={{x}} >
+                        A little bit
+                    </motion.h1>
+                    <h1 className={styles.middleTitle}>
+                        About
+                    </h1>
+                    <motion.h1 style={{x: getNegativeX()}}>
+                        Myself
+                    </motion.h1>
+                </div>
+                
+                <div className={styles.aboutMeContainer}>
+                    <div className={styles.innerAboutMeContainer}>
+
+                        <div className={styles.aboutMeText}>
+                            <div className={styles.textContainer}>
+                                <p><span className='text-[1rem] font-bold'>My name is Manu Rajbhar</span>, but you can call me MR :) I am a software developer interested in building iOS and web apps, coding video games, and training machine learning models.</p>
+                                <p>I love modern Swift and my major programming languages are Swift and Typescript I have a lot of experience in SwifUI, UIKit, React.js, and Next.js, and I have been coding for a long time.</p>
+                                <p>I have previous experience as a software developer intern at MoodMe. There, I assisted in developing features for an emotion analysis application using React and collaborated with team members to design and implement user interfaces.</p>
+                                <p>Above all, I am highly passionate, or you can say "so in love," with creating games (in Unreal Engine). Building games out of my imagination has always been a dream.</p>
+                                <p>⭐️ In my free time , here are the things that i love doing -&gt; let hobbies: [String] = [ " learning to Cook🥘 " , " Gardening🧑🏼‍🌾 " , " Knitting🧶 " ]</p>
+                            </div>
+                        </div>
+
+                        <div  className={styles.imageContainer}>
+                            <motion.div style={{y}} className={styles.imageBorder}>
+                                <div className="h-[450px] w-[310px] relative object-fill">
+                                    <Image src={"/imgs/myPicture.jpg"} fill style={{objectFit: "cover"}} alt='manu'/>
+                                </div>
+                            </motion.div>
+                        </div>    
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 };

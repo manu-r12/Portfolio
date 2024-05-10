@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './grid.module.scss'
+import Particles from '@/animations/Particles/particles'
 
 const Grid = () => {
   return (
@@ -11,6 +12,7 @@ const Grid = () => {
             <div className={styles.grid}></div>
             <div className={styles.grid}></div>
             {/* <div className={styles.grid}></div> */}
+            {/* <Particles className={styles.particlesBG}/> */}
 
         </div>
     </div>

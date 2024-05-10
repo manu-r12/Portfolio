@@ -50,6 +50,7 @@ const Experience = () => {
              </div>
           </motion.div>
         </div>
+       
     </div>
   )
 }

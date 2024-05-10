@@ -6,14 +6,22 @@ import Grid from "@/components/UI/Grid/grid";
 import Experience from "@/components/Experience/experience";
 import Lenis from '@studio-freight/lenis'
 import About from "@/components/About/about";
-import Skills from "@/components/Skills/skills";
+import Skills from "@/components/Skills/skillSection";
+import Fake from "@/components/Fake/fake";
+import { getWeatherData } from "@/hooks/getWeatherData";
 
 
 
 export default function Home() {
 
-  useEffect(() =>{
+  async function startk() {
+    console.log("Weather Data ->", await getWeatherData('Delhi'))
+  }
 
+  useEffect(() =>{
+    const start = async ()  => {
+      await startk()
+    }
     const lenis = new Lenis()
 
     function raf(time: number) {
@@ -23,6 +31,7 @@ export default function Home() {
 
     }
 
+    start()
     requestAnimationFrame(raf)
   })
 
@@ -32,12 +41,10 @@ export default function Home() {
     {/* Fixed ELements */}
       <Grid/>
       <Nav/>
-    {/* ------------- */}
-
       <Hero/>
-      <Skills/>
-      <Experience/>
       <About/>
+      <Experience/>
+      <Skills/>
     </main>
   );
 }

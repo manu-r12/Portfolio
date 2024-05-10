@@ -29,3 +29,13 @@
     background: conic-gradient(hsla(0, 0%, 24%, 1), hsla(234, 60%, 62%, 0.323));
   }
 
+  .v4{
+    left: 35%;
+    top: 40%;
+    width: 30%;
+    height: 50%;
+    background: conic-gradient(#000, #0528a2);
+  }
+
+
+
