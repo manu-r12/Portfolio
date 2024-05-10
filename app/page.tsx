@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <main className="relative h-screen">
     {/* Fixed ELements */}
-      {/* <Grid/> */}
+
       <Nav/>
       <Hero/>
       <About/>

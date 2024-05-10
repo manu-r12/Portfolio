@@ -4,6 +4,7 @@ import styles from './experience.module.scss'
 import { useInView } from 'react-intersection-observer';
 import {motion} from 'framer-motion'
 import Blobs from '../Blob/blob';
+import { text_reveal_animation_1, text_reveal_animation_2 } from '@/animations/TextReveal/text-reveal.cofig';
 
 const Experience = () => {
 
@@ -12,26 +13,15 @@ const Experience = () => {
     threshold: 0.75,
     triggerOnce: true
   });
-  const animation1 = {
-    initial: {y: "100%"},
-    enter: {y: "0", transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: .15 }}
-
-  }
-
-  const animation2 = {
-    initial: {y: "100%"},
-    enter: {y: "0", transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: .25 }}
-
-  }
 
 
   return (
     <div ref={ref} className={styles.container}>
         <div className={styles.lineMask}>
-            <motion.p variants={animation1} initial="initial" animate={inView ? "enter" : ""}>Experience</motion.p>
+            <motion.p variants={text_reveal_animation_1} initial="initial" animate={inView ? "enter" : ""}>Experience</motion.p>
         </div>
         <div className='w-full flex items-center justify-center pl-20 pr-20 mt-10 overflow-hidden'>
-          <motion.div variants={animation2} initial="initial" animate={inView ? "enter" : ""} 
+          <motion.div variants={text_reveal_animation_2} initial="initial" animate={inView ? "enter" : ""} 
           className={`${styles.workExpInfoContainer}`}>
               <div className={styles.orgNameAndYear}>
                 <div>

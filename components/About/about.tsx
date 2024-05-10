@@ -73,9 +73,11 @@ const About = () => {
                         </div>
 
                     </div>
+                    <Blobs type='v2'/>
                 </div>
-
             </div>
+         <Blobs type='v2'/>
+    
         </div>
     );
 };
