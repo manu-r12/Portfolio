@@ -3,6 +3,10 @@ import styles from "./player.module.scss"
 import Image from "next/image"
 import { clipText } from "@/utils/TextCliper"
 import { BsSpotify } from "react-icons/bs"
+import { FaHistory } from "react-icons/fa";
+import { ThreeDotsLoading } from "../UI/Indicators/Loading"
+
+
 
 
 const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> = ({lastPlayedSong}) => {
@@ -15,7 +19,7 @@ const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | un
         {/* <div className='w-full h-1 mt bg-slate-300'/> */}
         <div className='p-4 flex flex-row  items-center gap-4'>
             <div className='h-11 w-11 relative object-fill overflow-hidden'>
-                {lastPlayedSong && <Image src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/>}
+                {lastPlayedSong ? <Image src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/> : <ThreeDotsLoading/>}
             </div>
             <div className={styles.artistInfo}>
                 <div className='w-40'>
@@ -23,12 +27,7 @@ const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | un
                     <p>{lastPlayedSong && "By"}{lastPlayedSong ? clipText(lastPlayedSong.artists[0].name) : "Fetching.."}</p>
                 </div>
                 <div>
-                <div className={styles.bars}>
-                    <div className={styles.bar}></div>
-                    <div className={styles.bar}></div>
-                    <div className={styles.bar}></div>
-                    <div className={styles.bar}></div>
-                </div>
+                  {lastPlayedSong && <FaHistory color="#1bd760"/>}
                 </div>
             </div>
            
