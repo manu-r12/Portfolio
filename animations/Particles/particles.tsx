@@ -26,11 +26,11 @@ export default function Particles({ className } : {className?: string}) {
         const particles = new THREE.Group();
         const particleGeometry = new THREE.BufferGeometry();
         const particleMaterial = new THREE.PointsMaterial({
-            size: 0.01,
+            size: 0.008,
             vertexColors: true, // Enable vertex colors
         });
 
-        const numParticles = 1000;
+        const numParticles = 500;
         const positions = new Float32Array(numParticles * 3);
         const colors = new Float32Array(numParticles * 3);
 

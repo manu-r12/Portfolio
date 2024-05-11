@@ -29,3 +29,34 @@ img {
   -ms-user-select: none;
   pointer-events: none;
 }
+
+
+
+
+
+@font-face {
+  font-family: 'Bitmap';
+  src: url('/fonts/bitmap_light.otf') format('opentype');
+  font-weight: normal;
+}
+
+
+@font-face {
+  font-family: 'Bitmap';
+  src: url('/fonts/bitmap_bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+
+@font-face {
+  font-family: 'Bitmap';
+  src: url('/fonts/bitmap_medium.otf') format('opentype');
+  font-weight: medium;
+}
+
+
+@font-face {
+  font-family: 'Bitmap';
+  src: url('/fonts/bitmap_regular.otf') format('opentype');
+  font-weight: 300;
+}

@@ -2,11 +2,9 @@
 import React, { useEffect }  from "react";
 import Particles from "@/animations/Particles/particles";
 import styles from './hero.module.scss'
-import { motion } from "framer-motion";
 import Player from "../SpotifyMiniPlayer/player";
 import Logo from "../Logo/logo";
-import { getCurrentTime } from "@/hooks/getCurrentTime";
-import Blobs from "../Blob/blob";
+import Image from "next/image";
 
 
 
@@ -50,52 +48,19 @@ export default function HeroBg() {
 
   return (
     <div className={styles.container}>
-        <Logo/>
-        <div >
-        <motion.div className={styles.innerContainer}>
-            <div className={styles.inner}>
-                <div className={styles.text}>
-                <motion.p variants={translateSimple} 
-                    initial="initial"
-                    animate="enter" 
-                    exit="exit"  
-                    className={`${styles.myIntro}`}>I am Manu</motion.p>
-                    <div className={styles.imageOfMyself}/>
-                </div>
-                <div className={styles.text}>
-                <motion.p variants={translateSimple} 
-                    initial="initial"
-                    animate="enter" 
-                    exit="exit"  
-                    className={`${styles.myIntro}`}>A Passionate 
-                    <span className={styles.blured}>
-                        <motion.span variants={translateSimple} 
-                        initial="initial"
-                        animate="enter" 
-                        exit="exit"  
-                        className={`${styles.gradientText}`}> Programmer</motion.span>
-                    </span>
-                    </motion.p>
-                </div>
-            </div>
-            <motion.div className={styles.bioText}
-                 variants={fading} 
-                 initial="initial"
-                 animate="enter" 
-                 exit="exit" 
-                >
-                <p className="w-[590px]  tracking-wider">
-                    “when you don't create things, you become defined by your tastes rather than ability. your tastes only narrow & exclude people. so create"
-                    </p>
-                {/* <p>I'm interested in building iOS and Web apps, coding videogames, and training machine learning models</p> */}
-            </motion.div>
-        </motion.div>
-     </div>
-     <div className={styles.heroBackground}/>
+        
+     <div className={styles.introTextContainer}>
+        <div className={styles.innerTextContainer}>
+            <p>I'm Manu</p>
+            <p>A Passionate </p>
+            <p style={{color: "#0FC06B"}}>Programmer</p>
+            <Image className="absolute top-[10%]" alt="Hello" src={"/icons/codebrackts.svg"} height={600} width={600}/>
+        </div>
+     </div>   
+   
+    <div className={styles.heroBackground}/>
      <Player/>
-     {/* <Blobs type="v3"/> */}
-     <Blobs type="v2"/>
-     <Blobs type="v1"/>
+     <Logo/>
      <Particles className={styles.particlesBG}/>
     </div>
     
