@@ -30,7 +30,7 @@ export default function Particles({ className } : {className?: string}) {
             vertexColors: true, // Enable vertex colors
         });
 
-        const numParticles = 500;
+        const numParticles = 300;
         const positions = new Float32Array(numParticles * 3);
         const colors = new Float32Array(numParticles * 3);
 
