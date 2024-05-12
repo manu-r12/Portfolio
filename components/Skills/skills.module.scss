@@ -1,8 +1,8 @@
 .container{
+   position: relative;
     height: 100vh;
     width: 100%;
     // background-color: black;
-    position: relative;
     margin-top: 220px;
 
     
@@ -29,7 +29,7 @@
 
  .skillCard{
     z-index: 3;
-
+    position: relative;
     margin: 0px;
     width: 640px;
     height: 230px;

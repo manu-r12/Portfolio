@@ -182,9 +182,7 @@ const Skills = () => {
                     </div>
 
                 </motion.div>
-        
-        <motion.div variants={bg_image_reveal} 
-        initial="initial" animate={inView ? "enter" : ""} ><Blobs type='v4'/></motion.div>
+
         </motion.div>
         </div>
        

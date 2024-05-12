@@ -36,7 +36,11 @@ const Player = () => {
 
   return (
     <div className={styles.container}>
-        {currentSong ? <><CurrentlyPlaying currentSong={currentSong}  /></> : <RecentlyPlayedSong lastPlayedSong={lastPlayedSong}/> }
+        {currentSong 
+        ? 
+        <CurrentlyPlaying currentSong={currentSong}/> 
+        :
+        <RecentlyPlayedSong lastPlayedSong={lastPlayedSong}/> }
     </div>
   )
 }

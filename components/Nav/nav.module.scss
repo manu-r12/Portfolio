@@ -1,10 +1,9 @@
 .container{
     display: flex;
     flex-direction: row;
-    background: rgba(0, 0, 0, 0.1);
-    // box-shadow: 0 8px 32px 0 rgba(114, 122, 230, 0.16);
-    backdrop-filter: blur( 22px );
-    -webkit-backdrop-filter: blur( 22px );
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur( 12px );
+    -webkit-backdrop-filter: blur( 12px );
     border-radius: 50px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 510px;
