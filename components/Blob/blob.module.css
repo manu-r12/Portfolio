@@ -41,17 +41,22 @@
 .container{
   position: fixed;
   width: 100%;
+  z-index: -4;
   height: 100vh;
 }
 
-  .blobContainer{
-    background-color: #0FC06B;
-    height: 350px;
+.blobContainer{
+    background: #000 radial-gradient(circle, rgba(15, 192, 107, 0.3), rgba(15, 192, 107, 0) 60%);
+    height: 1100px;
     aspect-ratio: 1;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     border-radius: 50%;
-    filter: blur(220px);
-  }
+    filter: blur(110px);
+}
+
+
+ 
+  

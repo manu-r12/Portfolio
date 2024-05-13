@@ -16,10 +16,8 @@ export default function Particles({ className } : {className?: string}) {
         const renderer = new THREE.WebGLRenderer();
         renderer.setSize(window.innerWidth, window.innerHeight);
 
-        // Append renderer's DOM element to the sceneRef
         sceneRef.current?.appendChild(renderer.domElement);
 
-        // Set transparent background
         renderer.setClearAlpha(0);
 
         // Create particles
@@ -27,7 +25,7 @@ export default function Particles({ className } : {className?: string}) {
         const particleGeometry = new THREE.BufferGeometry();
         const particleMaterial = new THREE.PointsMaterial({
             size: 0.008,
-            vertexColors: true, // Enable vertex colors
+            vertexColors: true, 
         });
 
         const numParticles = 300;

@@ -9,6 +9,8 @@ const About = () => {
     const target = useRef<HTMLDivElement | null>(null)    
     const { scrollYProgress } = useScroll();
 
+
+
     const x = useTransform(scrollYProgress, [0, 1], [-510, 600]);
     const y = useTransform(scrollYProgress, [0, 1], [150, -190]);
     const getNegativeX  = () => {
