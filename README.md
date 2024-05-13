@@ -1,5 +1,10 @@
 # My Personal Portfolio 💙
 
+![Icon Description](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBsEFTJyiprf8CPYc_WaV6T97zrPVleDAMtnbkdb9kEA&s)
+
+
+
+
 Welcome 🤗 to my personal portfolio repository! Here you'll find a collection of projects showcasing my skills in things i love doing such as building cool iOS Apps, Web Apps, ML and the one i love most is making GAMES (still learning..) 😉.
 
 ## Technologies Used for this portfolio
