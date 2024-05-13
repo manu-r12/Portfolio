@@ -4,91 +4,10 @@ import { useInView } from 'react-intersection-observer';
 import {motion} from 'framer-motion'
 import { text_reveal_animation_1, text_reveal_animation_2 } from '@/animations/TextReveal/text-reveal.cofig';
 import Image from 'next/image';
-import Blobs from '../Blob/blob';
-import { bg_image_reveal } from '@/animations/TextReveal/bg-image-reveal';
+import { FrameworksDetails, ToolsDetails, skillsDetails } from '@/database/skillsData';
 
 const Skills = () => {
-
-
-    const skillsDetails = [
-        {
-        icon: "cpp.svg",
-        name: "C++"
-        },
-        {
-        icon: "swift.svg",
-        name: "Swift"
-        },
-        {
-        icon: "ts.svg",
-        name: "Typscript"
-        },
-        {
-        icon: "js.svg",
-        name: "Javascript"
-        },
-        {
-        icon: "py.svg",
-        name: "Python"
-        },
-        {
-        icon: "java.svg",
-        name: "Java"
-        },
-    ]
-
-    const ToolsDetails = [
-        {
-        icon: "xcode.svg",
-        name: "XCode"
-        },
-        {
-        icon: "vscode.svg",
-        name: "VS Code"
-        },
-        {
-            icon: "pycharm.svg",
-            name: "Pycharm"
-             },
-             {
-             icon: "figma.svg",
-             name: "Figma"
-             },
-             {
-        icon: "unreal.svg",
-        name: "Unreal Engine (Game Development)"
-        },
-       
-    ]
-
-    const FrameworksDetails = [
-        {
-        icon: "swift.svg",
-        name: "Swfit UI"
-        },
-        {
-        icon: "react.svg",
-        name: "React"
-        },
-        {
-        icon: "nextjs.svg",
-        name: "Next js"
-        },
-        
-        {
-        icon: "django.svg",
-        name: "django"
-        },
-        {
-        icon: "nodejs.svg",
-        name: "Node js"
-        },
-        {
-        icon: "tensorflow.svg",
-        name: "Tensorflow"
-        },
-       
-    ]
+   
 
   const body = useRef<HTMLDivElement>(null);
   const { ref, inView, entry } = useInView({
@@ -108,7 +27,7 @@ const Skills = () => {
             </motion.p>
         </div>
 
-    <div className='w-full flex items-center justify-center mt-10 overflow-hidden'>
+    <div className='w-full justify-center flex items-center  mt-20 '>
 
         <motion.div 
         variants={text_reveal_animation_2} 

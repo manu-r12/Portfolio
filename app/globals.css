@@ -8,7 +8,7 @@
 @tailwind utilities;
 
 ::selection {
-  background-color: #a3b3ed; /* Change this to the color you want */
+  background-color: #206336; /* Change this to the color you want */
   color: #fff; /* Change this to the text color you want */
 }
 
@@ -35,28 +35,28 @@ img {
 
 
 @font-face {
-  font-family: 'Bitmap';
-  src: url('/fonts/bitmap_light.otf') format('opentype');
-  font-weight: normal;
-}
-
-
-@font-face {
-  font-family: 'Bitmap';
-  src: url('/fonts/bitmap_bold.otf') format('opentype');
+  font-family: 'OffBitTrial-Bold';
+  src: url('/fonts/OffBitTrial-Bold.ttf') format('truetype');
   font-weight: bold;
 }
 
 
 @font-face {
-  font-family: 'Bitmap';
-  src: url('/fonts/bitmap_medium.otf') format('opentype');
+  font-family: 'OffBitTrial-Dot';
+  src: url('/fonts/OffBitTrial-Dot.ttf') format('truetype');
+  /* font-weight: bold; */
+}
+
+
+@font-face {
+  font-family: 'OffBitTrial-Regular';
+  src: url('/fonts/OffBitTrial-Regular.ttf') format('truetype');
   font-weight: medium;
 }
 
 
 @font-face {
-  font-family: 'Bitmap';
-  src: url('/fonts/bitmap_regular.otf') format('opentype');
+  font-family: 'OffBitTrial-DotBold';
+  src: url('/fonts/OffBitTrial-DotBold.ttf') format('truetype');
   font-weight: 300;
 }

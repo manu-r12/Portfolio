@@ -1,0 +1,130 @@
+.container{
+    height: 100vh;
+    width: 100%;
+}
+
+
+.lineMask{
+    overflow: hidden;
+
+  }
+
+
+    
+.lineMask p{
+    margin: 0px;
+    font-family: "Poppins", sans-serif;
+    font-size: 4.4rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px;
+    padding: 0 40px;
+  
+  }
+.innerContainer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+  
+.projectsContainer{
+    display: flex;
+    padding: 0 60px;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: flex-start;
+    overflow: hidden;
+    
+}
+
+.projectsCard{
+    width: 430px;
+    height: 460px;
+    border: 1.5px  solid rgba(255, 255, 255, .1);
+    border-radius: 10px;
+    overflow: hidden;
+    scale: 1;
+    transition: scale .2s;
+    
+    &:hover{
+        scale: 1.05;
+    }
+
+    .link{
+        position: absolute;
+        color: rgb(255, 255, 255);
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        bottom: 2.1%;
+        right: 2.1%;
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+        gap: 10px;
+
+        background: rgb(0, 0, 0);
+        border-radius: 20px;
+        padding: 10px 15px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+    .imageDiv{
+        position: relative;
+        width: 100%;
+        height: 260px;
+        overflow: hidden;
+
+ 
+        // object-fit: fill;
+
+      
+
+    }
+
+    .discDiv{
+        border-top: 4px solid green;
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: rgba(0, 0, 0, 0.38);
+        p{
+            font-family: "Poppins", sans-serif;
+            letter-spacing: 0.5px;
+            font-weight: 200;
+
+        }
+
+        .discription{
+             letter-spacing: 0.5px;
+            font-size: 0.8rem;
+        }
+
+        .techUsed{ 
+         
+            display: inline-flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 6px;
+
+            p{
+                letter-spacing: 0.7px;
+                background-color: #000000b0;
+                padding: 2px 5px;
+                font-weight: 400;
+                font-size: 0.7rem;
+                // color: black;
+                border-radius: 7px;
+
+            }
+        }
+    }
+
+    
+}  

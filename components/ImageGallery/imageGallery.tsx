@@ -1,3 +1,4 @@
+"use client"
 import styles from './imageGallery.module.scss';
 
 import Picture1 from '../../public/photos/pic1.jpeg';
@@ -12,7 +13,7 @@ import Picture8 from '../../public/photos/pic8.jpg';
 import Image from 'next/image';
 
 import { useScroll, useTransform, motion} from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function ImageGallery() {
     
@@ -24,11 +25,15 @@ export default function ImageGallery() {
 
     
 
+    
+
     const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
     const scale5 = useTransform(scrollYProgress, [0, 1], [1, 5]);
     const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
     const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
     const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
+
+
 
     const pictures = [
         {
@@ -63,6 +68,11 @@ export default function ImageGallery() {
             src: Picture8,
             scale: scale9
         }]
+
+        useEffect(() =>{
+            console.log("Image Gallerey scale4 ->", pictures[0].scale.get())
+        }, [scale4])
+
 
     return (
         <div ref={container} className={styles.container}>

@@ -1,0 +1,36 @@
+
+.progressBarContainer {
+    position: fixed;
+    top: 21%;
+    left: 1%;
+    right: 0;
+    rotate: 90deg;
+
+    display: flex;
+    flex-direction: row;
+    // width: 100%;
+    align-items: center;
+    gap: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    // background-color: red;
+    z-index: 4;
+    transform-origin: 0%;
+
+
+  }
+  
+
+
+.progressBar{
+    position: relative;
+    width: 400px;
+    height: 1px;
+    background: #0FC06B;
+    transform-origin: 0%;
+  
+
+
+  }
+  

@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
 
 
-interface WeatherData {
+export interface WeatherData {
   main: {
     temp: number;
     humidity: number;

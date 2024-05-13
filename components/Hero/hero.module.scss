@@ -6,6 +6,8 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    will-change: transform;
+
     // z-index: -1;
     
   }
@@ -26,19 +28,30 @@
     align-items: center;
     justify-content: center;
     gap: 0px;
+    margin-bottom: 60px;
 
     p{
-
-      font-family: 'Poppins', sans-serif;
+      font-family: "OffBitTrial-DotBold", sans-serif;
       font-weight: 600;
-      font-size: 5.9rem;
-      line-height: 95px;
-
-      
+      font-size: 7.1rem;
+      letter-spacing: 5px;
+      line-height: 105px;
     }
   }  
 }  
 
+.locationAndTime{
+  position: absolute;
+  top: 7%;
+  right: 2%;
+
+  p{
+    font-family: "Poppins";
+    letter-spacing: 1px;
+    font-weight: 300;
+    font-size: 0.8rem;
+  }
+}
 
 .particlesBG {
   position: absolute;
@@ -55,8 +68,65 @@
   }
 }
 
+.svgIcon{
+  position: absolute;
+  height: 600px;
+  object-fit: fill;
+  z-index: -2;
+  width: 600px;
+}
+
+.svgIcon1{
+  bottom: -4%;
+  right: -10%;
+}
+
+.svgIcon4{
+  left: 32%;
+  bottom: -36%;
+  
+
+ 
+}
+
+.svgIcon2{
+  top: 15%;
+  left: -2%;
+  //  transition: filter 0.000001s ease; /* Add transition for filter property */
 
 
+}
+
+.svgIcon3{
+  top: 7%;
+  right: -7%;
+
+}
+
+.svgIcon5{
+  bottom: -16%;
+  left: 3%;
+
+}
+
+.svgIcon6{
+  bottom: 1%;
+  right: 10%;
+}
+
+.svgIcon7{
+  bottom: -25%;
+  left: 13%;
+}
+
+
+
+.svgIcon9{
+  top: -5%;
+  left: 10%;
+  filter: blur(5px);
+
+}
 
 @keyframes gradientAnimation {
   0% {

@@ -11,6 +11,9 @@ import ImageGallery from "@/components/ImageGallery/imageGallery";
 import { getWeatherData } from "@/hooks/getWeatherData";
 import  AnimatedCursor from "react-animated-cursor"
 import CursorFollowingBlob from "@/components/Blob/cursorFollowingBlob";
+import Particles from "@/animations/Particles/particles";
+import ProgressBar from "@/components/UI/ProgressBar/progressBar";
+import Projects from "@/components/Projects/projects";
 
 
 
@@ -60,6 +63,7 @@ export default function Home() {
       <About/>
       <Experience/>
       <Skills/>
+      <Projects/>  
     </main>
   );
 }
