@@ -2,9 +2,6 @@
     position: absolute;
     pointer-events: none;
     filter: blur(10rem);
-    .gradient{
-  
-    }
   }
   .v1{
     right: -50%;

@@ -9,7 +9,10 @@ import { ThreeDotsLoading } from "../UI/Indicators/Loading"
 
 
 
-const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> = ({lastPlayedSong}) => {
+const RecentlyPlayedSong: 
+React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> = 
+({lastPlayedSong}) => 
+{
   return (
     <div>
 
@@ -24,7 +27,7 @@ const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | un
         <div className='p-4 flex flex-row  items-center gap-4'>
             <div className='h-11 w-11 relative object-fill overflow-hidden'>
                 {lastPlayedSong ? 
-                <Image src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/> 
+                <Image placeholder="blur" blurDataURL={lastPlayedSong?.album.images[0].url} src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/> 
                 : <ThreeDotsLoading/>
                 }
             </div>
