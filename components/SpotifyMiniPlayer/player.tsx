@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './player.module.scss'
 import Image from 'next/image'
 import { BsSpotify } from 'react-icons/bs'
-import {  LastPlayedSong, CurrentMusic, getAccessToken, getNowPlaying, getRecentlyPlayed } from '../../spotify/SpotifyAPI'
+import {  LastPlayedSong, CurrentMusic, getAccessToken, getNowPlaying, getRecentlyPlayed, getSpotifyMusicStatus } from '../../spotify/SpotifyAPI'
 import { clipText } from '@/utils/TextCliper'
 import CurrentlyPlaying from './currentlyPlaying'
 import RecentlyPlayedSong from './lastPlayedSong'
@@ -17,13 +17,9 @@ const Player = () => {
     useEffect(() => {
         const fetchData = async () => {
             
-           const {access_token} = await getAccessToken()
-        
-           const currentSongData = await getNowPlaying(access_token)
-           const lastPlayed = await getRecentlyPlayed(access_token)
-  
-           setCurrentSong(currentSongData)
-           setLastPlayedSong(lastPlayed)
+           const {currentPlaying, recentPlayed} = await getSpotifyMusicStatus()  
+           setCurrentSong(currentPlaying)
+           setLastPlayedSong(recentPlayed)
   
         };
         // setInterval(() => {

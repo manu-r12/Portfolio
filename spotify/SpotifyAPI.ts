@@ -1,6 +1,7 @@
 import axios from "axios";
 import querystring from "querystring";
 
+
 const client_id = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
 const client_secret = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET;
 const refresh_token = process.env.NEXT_PUBLIC_SPOTIFY_REFRESH_TOKEN
@@ -43,6 +44,12 @@ export interface LastPlayedSong
     external_urls: {
       spotify: string;
     };
+}
+
+
+export interface SpotifyMusicStatus {
+  currentPlaying: CurrentMusic | null
+  recentPlayed: LastPlayedSong | null
 }
  
 export const getAccessToken = async () => 
@@ -102,4 +109,13 @@ export const getNowPlaying = async ( access_token: string ) : Promise < CurrentM
       return null;
     }
   };
+
+export const getSpotifyMusicStatus = async () : Promise<SpotifyMusicStatus> => {
+  const {access_token} = await getAccessToken()
+  const currentPlaying = await getNowPlaying(access_token)
+  const recentPlayed   = await getRecentlyPlayed(access_token)
+
+ 
+  return {currentPlaying, recentPlayed}
+}  
   
