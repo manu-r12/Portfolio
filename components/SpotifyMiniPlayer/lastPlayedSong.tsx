@@ -27,7 +27,8 @@ React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> =
         <div className='p-4 flex flex-row  items-center gap-4'>
             <div className='h-11 w-11 relative object-fill overflow-hidden'>
                 {lastPlayedSong ? 
-                <Image placeholder="blur" blurDataURL={lastPlayedSong?.album.images[0].url} src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/> 
+                placeholder="blur" blurDataURL={lastPlayedSong?.album.images[0].url} 
+                <Image src={lastPlayedSong?.album.images[0].url} fill alt='song_img'/> 
                 : <ThreeDotsLoading/>
                 }
             </div>

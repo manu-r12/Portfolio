@@ -35,14 +35,14 @@ const ToolsDetails = [
     name: "VS Code"
     },
     {
-        icon: "pycharm.svg",
-        name: "Pycharm"
-         },
-         {
-         icon: "figma.svg",
-         name: "Figma"
-         },
-         {
+    icon: "pycharm.svg",
+    name: "Pycharm"
+    },
+    {
+    icon: "figma.svg",
+    name: "Figma"
+    },
+    {
     icon: "unreal.svg",
     name: "Unreal Engine (Game Development)"
     },

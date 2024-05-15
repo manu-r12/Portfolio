@@ -9,6 +9,19 @@
     
 }
 
+
+  .svgIcon{
+    position: absolute;
+    height: 600px;
+    object-fit: fill;
+    z-index: -2;
+    width: 600px;
+    left: 10%;
+    top: 19%;
+
+  }
+
+
 .description{
     margin-top: 3rem;
     max-width: 80%;
@@ -38,7 +51,8 @@
       width: 100%;
     }
   }
-  
+
+
 .innerContainer{
   margin-top: 200px;
   width: 100%;

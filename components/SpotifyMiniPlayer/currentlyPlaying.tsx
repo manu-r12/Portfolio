@@ -1,7 +1,7 @@
 import { CurrentMusic } from "@/spotify/SpotifyAPI"
 import styles from "./player.module.scss"
 import Image from "next/image"
-import { clipText } from "@/utils/TextCliper"
+import { clipText } from "@/Utils/TextCliper"
 import { BsSpotify } from "react-icons/bs"
 import { ThreeDotsLoading } from "../UI/Indicators/Loading"
 
@@ -17,7 +17,7 @@ const CurrentlyPlaying: React.FC<{ currentSong: CurrentMusic  | null | undefined
         {/* <div className='w-full h-1 mt bg-slate-300'/> */}
         <div className='p-4 flex flex-row  items-center gap-4'>
             <div className='h-11 w-11 relative object-fill overflow-hidden'>
-                {currentSong ? <Image src={currentSong?.item.album.images[0].url} fill alt='song_img'/> :  <ThreeDotsLoading/>}
+                {currentSong ? <Image placeholder="blur" blurDataURL={currentSong?.item.album.images[0].url} src={currentSong?.item.album.images[0].url} fill alt='song_img'/> :  <ThreeDotsLoading/>}
             </div>
             <div className={styles.artistInfo}>
                 <div className='w-40'>

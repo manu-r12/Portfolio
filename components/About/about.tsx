@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { MotionValue, motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { MotionValue, motion, useInView, useScroll, useSpring, useTransform } from 'framer-motion';
 import styles from './about.module.scss';
 import Blobs from '../Blob/blob';
 import Image from 'next/image';
@@ -7,7 +7,7 @@ import { useInView } from 'framer-motion';
 
 
 const About = () => {
-
+ 
     const target = useRef<HTMLDivElement | null>(null)    
     const { scrollYProgress } = useScroll();
 
