@@ -9,7 +9,10 @@ import { ThreeDotsLoading } from "../UI/Indicators/Loading"
 
 
 
-const RecentlyPlayedSong: React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> = ({lastPlayedSong}) => {
+const RecentlyPlayedSong: 
+React.FC<{ lastPlayedSong: LastPlayedSong  | null | undefined }> = 
+({lastPlayedSong}) => 
+{
   return (
     <div>
 

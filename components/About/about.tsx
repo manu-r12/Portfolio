@@ -3,22 +3,27 @@ import { MotionValue, motion, useInView, useScroll, useSpring, useTransform } fr
 import styles from './about.module.scss';
 import Blobs from '../Blob/blob';
 import Image from 'next/image';
+import { useInView } from 'framer-motion';
 
 
 const About = () => {
+ 
     const target = useRef<HTMLDivElement | null>(null)    
     const { scrollYProgress } = useScroll();
 
     const isInView = useInView(target, { once : true });
 
     const x = useTransform(scrollYProgress, [0, 1], [-510, 600]);
-    const y = useTransform(scrollYProgress, [0, 1], [150, -190]);
+    const y = useTransform(scrollYProgress, [0, 1], [130, -190]);
+
     const getNegativeX  = () => {
         return useTransform(x, value => -value);
         
     }
 
- 
+    const twiceYValue = () =>{
+        return useTransform(y, value => value * 2.5);
+    }
 
 
     return (
@@ -48,7 +53,7 @@ const About = () => {
                         </div>
 
                         <div  className={styles.imageContainer}>
-                            <motion.div style={{y}} className={styles.imageBorder}>
+                            <motion.div style={{y: twiceYValue()}} className={styles.imageBorder}>
                                 <div className="h-[450px] w-[310px] relative object-fill">
                                     <Image src={"/imgs/myPicture.jpg"} fill style={{objectFit: "cover"}} alt='manu'/>
                                 </div>
@@ -60,14 +65,14 @@ const About = () => {
                     <div className={styles.outerAboutMeConatiner}>
                         
                         <div className={styles.textBoxContainer}>
-                            <div className={styles.innerTextBoxContainer}>
+                            {/* <div className={styles.innerTextBoxContainer}>
                                  <p>I have previous experience as a software developer intern at MoodMe. 
                                      There, I assisted in developing features for an emotion analysis application using React 
                                      and collaborated with team members to design and implement user interfaces.</p>
                                 <p>Above all, I am highly passionate, 
                                     or you can say "so in love," with creating games (in Unreal Engine). 
                                     Building games out of my imagination has always been a dream.</p>
-                            </div>
+                            </div> */}
 
                             <div className={styles.innerTextBoxContainer}>
                                 
@@ -81,14 +86,14 @@ const About = () => {
                     </div>
                 </div>
             </div>
-           <div 
-            style={{
-                transform: isInView ? "none" : "translateX(-200px)",
-                opacity: isInView ? 1 : 0,
-                transformOrigin: 0,
-                transition: "all 1.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
-              }}
-            className={`${styles.svgIcon}`}>
+        <div 
+        style={{
+            transform: isInView ? "none" : "translateX(-200px)",
+            opacity: isInView ? 1 : 0,
+            transformOrigin: 0,
+            transition: "all 1.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          }}
+        className={`${styles.svgIcon}`}>
             <Image fill alt="Hello" src={"/icons/smile.svg"}/>
         </div>
     

@@ -135,22 +135,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 60px;
+    padding: 0 100px;
 
     .textBoxContainer{
       width: 100%;
       display: flex;
       flex-direction: row;
-      align-items: start;
-      justify-content: center;
-      gap: 50px;
-
+      align-items: center;
+      // justify-content: center;
+      // gap: 50px;
+// 
       .innerTextBoxContainer{
-        width: 45%;
+        width: 65%;
 
         p{
           color: #fff;
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-family: "Poppins", sans-serif;
           font-weight: 300;
           letter-spacing: 1.09px;
@@ -159,6 +159,17 @@
       }
 
     }
+  }
+
+  .svgIcon{
+    position: absolute;
+    height: 600px;
+    object-fit: fill;
+    z-index: -2;
+    width: 600px;
+    left: 10%;
+    top: 19%;
+
   }
 
   @keyframes gradient {
