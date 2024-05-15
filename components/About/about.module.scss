@@ -172,6 +172,17 @@
 
   }
 
+  .svgIcon1{
+    position: absolute;
+    height: 260px;
+    object-fit: fill;
+    z-index: -2;
+    width: 260px;
+    right: 10%;
+    bottom: -4%;
+
+  }
+
   @keyframes gradient {
     0% {
       background-position: 0 50%;

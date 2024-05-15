@@ -98,6 +98,7 @@
     flex-wrap: wrap;
     margin-top: 14px;
     gap: 18px;
+    overflow: hidden;
     // justify-content: center;
     align-items: center;
 
@@ -109,6 +110,8 @@
         color: white;
         display: inline-flex;
         align-items: center;
+      overflow: hidden;
+
         font-size: 1rem;
         padding: 10px 19px;
         // width: 100px;

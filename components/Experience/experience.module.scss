@@ -3,6 +3,7 @@
   position: relative;
   margin-top: 220px;
   // border-top: 1px  solid rgba(255, 255, 255, .1);
+  overflow: hidden;
   
 
 }
@@ -25,6 +26,18 @@
   
   }
 
+  .svgIcon{
+    position: absolute;
+    height: 560px;
+    object-fit: fill;
+    z-index: -2;
+    width: 560px;
+    right: -27%;
+    rotate: -50deg;
+    bottom: -144%;
+    display: none;
+
+  }
 
 
 

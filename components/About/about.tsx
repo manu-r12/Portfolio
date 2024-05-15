@@ -96,7 +96,17 @@ const About = () => {
         className={`${styles.svgIcon}`}>
             <Image fill alt="Hello" src={"/icons/smile.svg"}/>
         </div>
-    
+        {/* <div 
+        style={{
+            transform: isInView ? "none" : "translateX(200px)",
+            opacity: isInView ? 1 : 0,
+            transformOrigin: 0,
+            transition: "all 1.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          }}
+        className={`${styles.svgIcon1}`}>
+            <Image fill alt="Hello" src={"/icons/star.svg"}/>
+        </div> */}
+
         </div>
     );
 };

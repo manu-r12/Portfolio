@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import {motion} from 'framer-motion'
 import Blobs from '../Blob/blob';
 import { text_reveal_animation_1, text_reveal_animation_2 } from '@/animations/TextReveal/text-reveal.cofig';
+import Image from 'next/image';
 
 const Experience = () => {
 
@@ -13,6 +14,9 @@ const Experience = () => {
     threshold: 0.75,
     triggerOnce: true
   });
+
+
+
 
 
   return (
@@ -40,7 +44,16 @@ const Experience = () => {
              </div>
           </motion.div>
         </div>
-       
+        <div 
+        style={{
+            transform: inView ? "none" : "translateX(200px)",
+            opacity: inView ? 1 : 0,
+            transformOrigin: 0,
+            transition: "all 1.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s"
+          }}
+        className={`${styles.svgIcon}`}>
+            <Image fill alt="Hello" src={"/icons/plant.svg"}/>
+        </div>
     </div>
   )
 }

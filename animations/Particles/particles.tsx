@@ -36,13 +36,13 @@ export default function Particles({ className } : {className?: string}) {
             positions[i] = (Math.random() - 0.5) * 10;
             positions[i + 1] = (Math.random() - 0.5) * 10;
             positions[i + 2] = (Math.random() - 0.5) * 10;
-
+        
             if (i % 2 === 0) {
                 colors[i] = 86 / 255; // Red component
-                colors[i + 1] = 89 / 255; // Green component
-                colors[i + 2] = 240 / 255; // Blue component
+                colors[i + 1] = 240 / 255; // Green component (changed to green)
+                colors[i + 2] = 89 / 255; // Blue component (changed to green)
             } else {
-                colors[i] = 255 / 255; // Red component
+                colors[i] = 255 / 255; 
                 colors[i + 1] = 255 / 255; // Green component
                 colors[i + 2] = 255 / 255; // Blue component
             }

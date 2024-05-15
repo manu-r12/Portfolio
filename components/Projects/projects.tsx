@@ -34,11 +34,11 @@ const Projects = () => {
                 initial="initial" animate={inView ? "enter" : ""}
                  key={i} className={styles.projectsCard}>
                     <div className={styles.imageDiv}>
-                        <Image src={p.img} style={{scale: "1.3"}} objectFit="cover" layout="fill" alt='recipe-book'/>
+                        <Image src={p.img} style={{scale: `${p.scale}`}} objectFit="cover" layout="fill" alt='recipe-book'/>
                         <Link className={styles.link} href={""}>See On Github <LuGithub/> </Link>
                     </div>
                     <div className={styles.discDiv}>
-                        <p>{p.name}</p>
+                        <p className='font-bold'>{p.name}</p>
                         <p className={styles.discription}>{p.discripiton}</p>
                         <div className={styles.techUsed}>
                             {p.techStack.map((t, i) =>{
