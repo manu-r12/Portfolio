@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
-import { MotionValue, motion, useInView, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import styles from './about.module.scss';
 import Blobs from '../Blob/blob';
 import Image from 'next/image';
-import { useInView } from 'framer-motion';
+
 
 
 const About = () => {
