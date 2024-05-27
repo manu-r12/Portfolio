@@ -6,21 +6,21 @@
     justify-content: center;
     position: fixed;
     z-index: 299;
-    background-color: #0FC06B;
+    background-color: black;
     svg{
         position: absolute;
         top: 0;
         width: 100%;
         height: calc(100% + 300px);
         path{
-            fill: #0FC06B;
+            fill: black;
         }
     }
     p{
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         display: flex;
-        color: black;
+        color: #0FC06B;
         font-size: 52px;
         letter-spacing: 1px;
         align-items: center;
