@@ -3,9 +3,10 @@ import React, { useRef } from 'react'
 import styles from './experience.module.scss'
 import { useInView } from 'react-intersection-observer';
 import {motion} from 'framer-motion'
-import {text_reveal_animation_1, 
+import {
+        text_reveal_animation_1, 
         text_reveal_animation_2 
-      } from '@/animations/TextReveal/text-reveal.cofig';
+       } from '@/animations/TextReveal/text-reveal.cofig';
 import Image from 'next/image';
 
 import { HiDownload } from "react-icons/hi";

@@ -32,7 +32,7 @@ const Projects = () => {
                  key={i} className={styles.projectsCard}>
                     <div className={styles.imageDiv}>
                         <Image src={p.img} style={{scale: `${p.scale}`}} objectFit="cover" layout="fill" alt='recipe-book'/>
-                        <Link className={styles.link} href={""}>See On Github <LuGithub/> </Link>
+                        <Link className={styles.link} href={p.link}>See On Github <LuGithub/> </Link>
                     </div>
                     <div className={styles.discDiv}>
                         <p className='font-bold'>{p.name}</p>
