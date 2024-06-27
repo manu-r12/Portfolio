@@ -3,6 +3,8 @@ export const projects = [
     name: "AI Recipe Book",
     img: "/imgs/recipe-ai.png",
 
+    link: "https://github.com/manu-r12/Cookbook",
+
     scale: 1.3,
 
     techStack: ["Swfit", "SwiftUI", "CoreML", "Spoonacular API", "UIKit", 'Firebase'],
@@ -12,6 +14,8 @@ export const projects = [
     name: "HyperX.ai",
     img: "/imgs/hyperX.ai.png",
 
+    link: "https://github.com/manu-r12/HyperX.ai",
+
     scale: 1.3,
     
     techStack: ["Next.js",],
@@ -20,6 +24,8 @@ export const projects = [
 {
     name: "Planto",
     img: "/imgs/planto.png",
+
+    link: "https://github.com/manu-r12/Planto",
 
     scale: 1.4,
     

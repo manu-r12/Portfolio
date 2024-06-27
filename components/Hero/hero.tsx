@@ -14,6 +14,7 @@ import { getNavState } from "@/redux/reducer/NavbarStateSelector";
 export default function HeroBg() {
 
     const target = useRef<HTMLDivElement>(null)
+    
     const [scrollProgress, setScrollProgress] = useState(0);
     const [Weather , setWeather] = useState<WeatherData | null>(null)
     
@@ -74,15 +75,6 @@ export default function HeroBg() {
                 <Image 
                 fill alt="Hello" src={"/icons/codebrackts.svg"}/>
             </div>
-{/* 
-            <div
-            style={{ transform: `scale(${1 + (scrollProgress * 0.07)}) rotate(${-scrollProgress * 2}deg)`,
-          
-                   }} 
-            className={`${styles.svgIcon2} ${styles.svgIcon}`}>
-                <Image 
-                fill alt="Hello" src={"/icons/laptop.svg"}/>
-            </div> */}
 
             <div 
              style={{ transform: `translateY(${-scrollProgress * 8}px) 
@@ -93,10 +85,6 @@ export default function HeroBg() {
             className={`${styles.svgIcon3} ${styles.svgIcon}`}>
                 <Image fill alt="Hello" src={"/icons/code-sign.svg"}/>
             </div>
-
-            {/* <div style={{ transform: `translateY(${scrollProgress * 30}px) rotate(${-scrollProgress * 5}deg)` }} className={`${styles.svgIcon4} ${styles.svgIcon}`}>
-                <Image fill alt="Hello" src={"/icons/plant.svg"}/>
-            </div> */}
 
             <div 
             style={{ transform: `translateY(${-scrollProgress * 8}px) 

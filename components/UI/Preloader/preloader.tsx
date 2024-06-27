@@ -3,10 +3,10 @@ import styles from './Preloader.module.scss';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anims';
-
-const words = ["Hello", "Bonjour", "Ciao", "नमस्ते", "やあ", "Hallå", "Guten tag", "Hallo"]
+import { words } from '@/database/preloader';
 
 export default function Preloader() {
+    
     const [index, setIndex] = useState(0);
     const [dimension, setDimension] = useState({width: 0, height:0});
 
