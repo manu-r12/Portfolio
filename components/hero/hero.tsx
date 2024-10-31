@@ -1,23 +1,32 @@
 "use client"
 import styles from './hero.module.scss';
-
 const Hero = () => {
 
   return (
-    <div className={styles.container}>
-      <section className={styles.wrapper}>
+    <section className={styles.container}>
         <div className={`${styles.hero} ${styles.heroDark}`}>
         </div>
-        <div className={styles.content}>
-          <div className={styles.title} data-text="An awesome title">
-            <h1>Hello! I am Manu Rajbhar </h1>
-          </div>
-          <div className={styles.caption}>
-            <h2>A software developer with a passion for turning code into creativity</h2>
+
+        <div className={styles.middleContainer}>
+          <div className={styles.intro}>
+              <h1 className={styles.title}>
+                Hi, My Name is Manu Rajbhar, I am a <span>Software Developer</span>
+              </h1>
+
+              <h2 className={styles.subTitle}>
+              i'm a computer science student who loves building fun applications. I have a passion for robotics and hope to explore it more in the future. 
+              I enjoy creating augmented reality applications as well. 
+              </h2>
+
+              {/* Scroll Down Indicator */}
+
+              <p className={styles.scrollDownText}>
+                Scroll Down
+              </p>
           </div>
         </div>
-      </section>
-    </div>
+        
+    </section>
   );
 };
 
