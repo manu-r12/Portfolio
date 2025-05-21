@@ -14,7 +14,7 @@ interface HeroProps {
 
 export default function Hero({
   name = "Manu Rajbhar",
-  bio = "I'm Manu, a pre-final year CS student and a **Google Summer of Code 2025 contributor**. I don't just write code; I reverse-engineer what excites me and rebuild it better. Whether I'm deep in low-level systems or designing user-first apps, I treat every project like a personal puzzle. Currently blending logic, creativity, and caffeine to leave my mark on open-source.",
+  bio = "Hi, I'm Manu, a pre-final year Computer Science student and currently a **Google Summer of Code 2025 contributor**. I love building fun, meaningful applications and have a growing passion for robotics, which I'm excited to explore more deeply in the future. I also enjoy creating augmented reality experiences that blend creativity with technology.\nOutside of code, I find joy in hands-on, cozy hobbies like:",
   profileImageSrc = "/images/me.jpg"
 }: HeroProps) {
   
@@ -103,11 +103,25 @@ export default function Hero({
             variants={fadeInRight}
             initial="hidden"
             animate="visible"
-            className="space-y-4 text-sm sm:text-base text-gray-600"
+            className="space-y-4 text-sm sm:text-base text-black"
           >
             <p className="leading-relaxed">
               {renderFormattedBio(bio)}
             </p>
+          </motion.div>
+          
+          {/* Hobbies Code Block */}
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            animate="visible"
+            className="mt-6 mb-6"
+          >
+            <div className="bg-white border border-gray-200 text-gray-800 p-4 rounded-lg overflow-x-auto shadow-sm">
+              <pre className="language-swift text-sm">
+let hobbies: [String] = ["Learning to cook 🥘", "Gardening 🧑🏼‍🌾", "Knitting ��"]
+              </pre>
+            </div>
           </motion.div>
           
           <motion.div 
@@ -142,7 +156,7 @@ export default function Hero({
 
             <motion.div variants={buttonVariant}>
               <Link 
-                href="/resume.pdf" 
+                href="/file/ManuRajbhar.pdf" 
                 download
                 className="inline-flex items-center px-4 py-2 border border-gray-200 rounded-md shadow-sm text-sm font-medium text-black bg-white hover:bg-gray-50 transition-colors"
               >

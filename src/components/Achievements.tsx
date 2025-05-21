@@ -30,7 +30,7 @@ export default function Achievements() {
       tag: 'Apple'
     },
     {
-      icon: '🛠️',
+      icon: '🏅',
       title: 'Google Summer of Code 2025 Contributor',
       description: 'Selected by Google to contribute as an iOS Software Developer with the Open Transit Software Foundation (OneBusAway). Working under the mentorship of Aaron Brethorst, I\'m dedicating this summer to building impactful open-source transit tools and giving back to the community that shaped me.',
       date: 'Jun-Sep 2025',

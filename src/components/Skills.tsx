@@ -76,14 +76,14 @@ export default function Skills() {
   return (
     <section className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
       <div className="flex items-center justify-between mb-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
           className="text-3xl font-bold text-black"
-        >
-          Skills
-        </motion.h2>
+      >
+        Skills
+      </motion.h2>
         <motion.button
           onClick={() => setIsExpanded(!isExpanded)}
           className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-black transition-colors"
@@ -104,60 +104,60 @@ export default function Skills() {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            {/* Tabs */}
-            <motion.div 
-              className="border-b border-gray-200 mb-6"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="flex space-x-1">
-                <button
-                  onClick={() => setActiveTab('technology')}
-                  className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
-                    activeTab === 'technology'
-                      ? 'border-black text-black'
-                      : 'border-transparent text-gray-500 hover:text-black'
-                  }`}
-                >
+      {/* Tabs */}
+      <motion.div 
+        className="border-b border-gray-200 mb-6"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="flex space-x-1">
+          <button
+            onClick={() => setActiveTab('technology')}
+            className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
+              activeTab === 'technology'
+                ? 'border-black text-black'
+                : 'border-transparent text-gray-500 hover:text-black'
+            }`}
+          >
                   <SiCoder className="w-5 h-5 mr-2" />
-                  Technology
-                </button>
-                <button
-                  onClick={() => setActiveTab('language')}
-                  className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
-                    activeTab === 'language'
-                      ? 'border-black text-black'
-                      : 'border-transparent text-gray-500 hover:text-black'
-                  }`}
-                >
+            Technology
+          </button>
+          <button
+            onClick={() => setActiveTab('language')}
+            className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
+              activeTab === 'language'
+                ? 'border-black text-black'
+                : 'border-transparent text-gray-500 hover:text-black'
+            }`}
+          >
                   <SiSwift className="w-5 h-5 mr-2" />
-                  Language
-                </button>
-              </div>
-            </motion.div>
+            Language
+          </button>
+        </div>
+      </motion.div>
 
-            {/* Skills Grid */}
-            <motion.div
-              key={activeTab}
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
+      {/* Skills Grid */}
+      <motion.div
+        key={activeTab}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
               className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"
-            >
-              {skills[activeTab].map((skill, index) => (
-                <motion.div
-                  key={`${activeTab}-${index}`}
-                  variants={itemVariants}
+      >
+        {skills[activeTab].map((skill, index) => (
+          <motion.div
+            key={`${activeTab}-${index}`}
+            variants={itemVariants}
                   className="bg-white p-2.5 rounded-lg border border-gray-200 hover:shadow-md transition-shadow flex items-center"
-                >
+          >
                   <div className="text-gray-700 mr-2">
                     {React.createElement(skill.icon, { className: "w-4 h-4" })}
                   </div>
                   <span className="text-black text-sm">{skill.name}</span>
-                </motion.div>
-              ))}
-            </motion.div>
+          </motion.div>
+        ))}
+      </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

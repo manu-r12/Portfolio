@@ -62,11 +62,11 @@ export default function FloatingNavbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
+      
       // Determine active section based on scroll position
       const sections = navLinks.map(link => link.href.replace('#', ''));
       const scrollPosition = window.scrollY + 100;
-
+      
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -88,7 +88,7 @@ export default function FloatingNavbar() {
 
       setLastScrollY(currentScrollY);
     };
-
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     // Initial check for active section and visibility
     handleScroll();
@@ -100,7 +100,7 @@ export default function FloatingNavbar() {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
-
+    
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -140,7 +140,7 @@ export default function FloatingNavbar() {
   };
 
   return (
-    <div
+    <div 
       className={`fixed top-4 left-4 z-50 transition-all duration-300 ${
         isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0' // Slide up off-screen when hidden
       }`}
@@ -169,24 +169,24 @@ export default function FloatingNavbar() {
           >
             <div className="relative bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
               <ul className="py-2">
-                {navLinks.map((link) => (
+            {navLinks.map((link) => (
                   <motion.li key={link.name} variants={menuItemVariants}>
-                    <Link
-                      href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
+                <Link
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
                       className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium transition-colors ${
-                        activeSection === link.href.replace('#', '')
+                    activeSection === link.href.replace('#', '')
                           ? 'text-black bg-gray-50'
                           : 'text-gray-600 hover:text-black hover:bg-gray-50'
-                      }`}
-                    >
+                  }`}
+                >
                       <span className="w-5 h-5">{link.icon}</span>
-                      <span>{link.name}</span>
-                    </Link>
+                  <span>{link.name}</span>
+                </Link>
                   </motion.li>
-                ))}
-              </ul>
-            </div>
+            ))}
+          </ul>
+      </div>
           </motion.div>
         )}
       </AnimatePresence>
