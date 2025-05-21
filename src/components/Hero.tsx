@@ -87,14 +87,14 @@ export default function Hero({
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-8 md:py-12 lg:py-16 bg-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 items-center">
         {/* Left column - Text content */}
         <div className="order-2 lg:order-1">
           <motion.h1
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
-            className="text-3xl sm:text-4xl font-bold mb-6 text-black"
+            className="text-3xl sm:text-4xl font-bold mb-6 text-black hidden md:block"
           >
             Portfolio
           </motion.h1>

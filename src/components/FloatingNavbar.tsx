@@ -62,21 +62,11 @@ export default function FloatingNavbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Hide navbar on scroll down, show on scroll up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-        setIsMenuOpen(false); // Close menu when scrolling down
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
-      
+
       // Determine active section based on scroll position
       const sections = navLinks.map(link => link.href.replace('#', ''));
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -87,9 +77,21 @@ export default function FloatingNavbar() {
           }
         }
       }
+
+      // Hide navbar on scroll down, show on scroll up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+        setIsMenuOpen(false); // Close menu when scrolling down
+      } else {
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check for active section and visibility
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY, navLinks]);
 
@@ -98,7 +100,7 @@ export default function FloatingNavbar() {
     e.preventDefault();
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
-    
+
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
@@ -108,7 +110,7 @@ export default function FloatingNavbar() {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
+
       setActiveSection(targetId);
       setIsMenuOpen(false); // Close menu after clicking a link
     }
@@ -117,14 +119,14 @@ export default function FloatingNavbar() {
   const menuVariants = {
     closed: {
       opacity: 0,
-      y: 20,
+      x: -20, // Slide out from left
       transition: {
         duration: 0.2
       }
     },
     open: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.3,
         staggerChildren: 0.1
@@ -138,95 +140,56 @@ export default function FloatingNavbar() {
   };
 
   return (
-    <div 
-      className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
+    <div
+      className={`fixed top-4 left-4 z-50 transition-all duration-300 ${
+        isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0' // Slide up off-screen when hidden
       }`}
     >
-      {/* Desktop Navigation */}
-      <div className="hidden md:block">
-        <div className="relative p-[1px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 animate-gradient-x">
-          <nav className="relative bg-white rounded-full shadow-sm px-4 py-2.5">
-            <ul className="flex items-center space-x-3">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`relative flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'text-black bg-gray-50'
-                        : 'text-gray-500 hover:text-black hover:bg-gray-50'
-                    }`}
-                  >
-                    <span className="w-5 h-5">{link.icon}</span>
-                    <span>{link.name}</span>
-                    
-                    {activeSection === link.href.replace('#', '') && (
-                      <motion.div
-                        layoutId="activeIndicator"
-                        className="absolute bottom-0 left-0 right-0 mx-auto h-0.5 w-1/2 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-full"
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
+      {/* Burger Menu Button - Always Visible */}
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="relative bg-white rounded-full p-3 shadow-sm border border-gray-200"
+        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+      >
+        {isMenuOpen ? (
+          <FaTimes className="w-5 h-5 text-gray-600" />
+        ) : (
+          <FaBars className="w-5 h-5 text-gray-600" />
+        )}
+      </button>
 
-      {/* Mobile Navigation */}
-      <div className="md:hidden">
-        <div className="relative p-[1px] rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 animate-gradient-x">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="relative bg-white rounded-full p-3 shadow-sm"
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="absolute top-full left-0 mt-2 w-48 origin-top-left"
           >
-            {isMenuOpen ? (
-              <FaTimes className="w-5 h-5 text-gray-600" />
-            ) : (
-              <FaBars className="w-5 h-5 text-gray-600" />
-            )}
-          </button>
-        </div>
-
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial="closed"
-              animate="open"
-              exit="closed"
-              variants={menuVariants}
-              className="absolute bottom-16 left-1/2 transform -translate-x-1/2 w-48"
-            >
-              <div className="relative p-[1px] rounded-lg bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 animate-gradient-x">
-                <div className="relative bg-white rounded-lg shadow-sm overflow-hidden">
-                  <ul className="py-2">
-                    {navLinks.map((link) => (
-                      <motion.li key={link.name} variants={menuItemVariants}>
-                        <Link
-                          href={link.href}
-                          onClick={(e) => handleNavClick(e, link.href)}
-                          className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium transition-colors ${
-                            activeSection === link.href.replace('#', '')
-                              ? 'text-black bg-gray-50'
-                              : 'text-gray-500 hover:text-black hover:bg-gray-50'
-                          }`}
-                        >
-                          <span className="w-5 h-5">{link.icon}</span>
-                          <span>{link.name}</span>
-                        </Link>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+            <div className="relative bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200">
+              <ul className="py-2">
+                {navLinks.map((link) => (
+                  <motion.li key={link.name} variants={menuItemVariants}>
+                    <Link
+                      href={link.href}
+                      onClick={(e) => handleNavClick(e, link.href)}
+                      className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium transition-colors ${
+                        activeSection === link.href.replace('#', '')
+                          ? 'text-black bg-gray-50'
+                          : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                      }`}
+                    >
+                      <span className="w-5 h-5">{link.icon}</span>
+                      <span>{link.name}</span>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

@@ -33,7 +33,7 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="py-8 px-4 border-t border-[#fafafa]"
+      className="py-8 px-6 border-t border-[#fafafa]"
       initial="hidden"
       animate="visible"
       variants={footerVariants}

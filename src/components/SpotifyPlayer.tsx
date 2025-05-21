@@ -21,7 +21,7 @@ export default function SpotifyPlayer() {
     };
 
     fetchMusicStatus();
-    const interval = setInterval(fetchMusicStatus, 30000); // Update every 30 seconds
+    const interval = setInterval(fetchMusicStatus, 10000); 
 
     return () => clearInterval(interval);
   }, []);

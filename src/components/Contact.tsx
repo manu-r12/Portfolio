@@ -71,7 +71,7 @@ export default function Contact() {
   };
 
   return (
-    <section ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white border-t border-b border-[#fafafa]">
+    <section ref={ref} className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white border-t border-b border-[#fafafa]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Left column - Text content */}
         <motion.div

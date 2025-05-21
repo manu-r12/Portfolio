@@ -83,7 +83,7 @@ export default function Projects() {
   };
 
   return (
-    <section ref={ref} className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
+    <section ref={ref} className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
