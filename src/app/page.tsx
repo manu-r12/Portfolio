@@ -11,6 +11,7 @@ import FloatingNavbar from "@/components/FloatingNavbar"
 import Footer from "@/components/Footer"
 import Experience from "@/components/Experience"
 import LoadingScreen from "@/components/LoadingScreen"
+import Gallery from "@/components/Gallery"
 
 export default function Home() {
   // Control loading state
@@ -64,6 +65,8 @@ export default function Home() {
           <section id="projects">
             <Projects />
           </section>
+
+          <Gallery/>
           
           <section id="contact">
             <Contact />
