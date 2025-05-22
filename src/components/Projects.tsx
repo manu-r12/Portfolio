@@ -4,7 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaFolder } from 'react-icons/fa';
+import { FaFolder, FaStar, FaHistory } from 'react-icons/fa';
+import { projects } from '@/data/ProjectData';
 
 type ProjectTab = 'featured' | 'past';
 
@@ -23,44 +24,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   // Projects data from resume
-  const projects: Record<ProjectTab, ProjectItem[]> = {
-    'featured': [
-      {
-        title: 'Cookbook AI',
-        description: 'An iOS app helping users find recipes based on available ingredients using AI image classification.',
-        icon: <FaFolder className="w-6 h-6 text-gray-700" />,
-        tags: ['Swift', 'SwiftUI', 'Core ML', 'Firebase'],
-        link: 'https://github.com/your-username/cookbook-ai',
-        image: '/project-placeholder.jpg'
-      },
-      {
-        title: 'Drawyy',
-        description: 'A collaborative web application for real-time drawing and generative art creation with live updates.',
-        icon: <FaFolder className="w-6 h-6 text-gray-700" />,
-        tags: ['Next.js', 'FastAPI', 'MongoDB', 'WebSocket'],
-        link: 'https://github.com/your-username/drawyy',
-        image: '/project-placeholder.jpg'
-      }
-    ],
-    'past': [
-      {
-        title: 'OneBusAway iOS Widget',
-        description: 'Modernized widget system for the OneBusAway iOS app, enhancing real-time transit data updates.',
-        icon: <FaFolder className="w-6 h-6 text-gray-700" />,
-        tags: ['Swift', 'SwiftUI', 'WidgetKit'],
-        link: 'https://github.com/OneBusAway/onebusaway-ios',
-        image: '/project-placeholder.jpg'
-      },
-      {
-        title: 'Mood-Me Dashboard',
-        description: 'Redesigned internal application feature with React.js, improving site-wide load times.',
-        icon: <FaFolder className="w-6 h-6 text-gray-700" />,
-        tags: ['React.js', 'Redux', 'UI Design'],
-        link: '#',
-        image: '/project-placeholder.jpg'
-      }
-    ]
-  };
+  
 
   // Animation variants
   const containerVariants = {
@@ -83,7 +47,7 @@ export default function Projects() {
   };
 
   return (
-    <section ref={ref} className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
+    <section ref={ref} className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 pb-12 md:pb-16 lg:pb-20 bg-white">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -95,7 +59,7 @@ export default function Projects() {
 
       {/* Tabs */}
       <motion.div 
-        className="border-b border-[#fafafa] mb-6"
+        className="border-b border-gray-200 mb-6"
         initial={{ opacity: 0, y: -10 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
         transition={{ duration: 0.3, delay: 0.2 }}
@@ -106,10 +70,10 @@ export default function Projects() {
             className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
               activeTab === 'featured'
                 ? 'border-black text-black'
-                : 'border-transparent text-gray-500 hover:text-black'
+                : 'border-transparent text-black hover:text-black'
             }`}
           >
-            <span className="mr-2">⭐</span>
+            <FaStar className="w-5 h-5 mr-2" />
             Featured
           </button>
           <button
@@ -117,10 +81,10 @@ export default function Projects() {
             className={`flex items-center px-4 py-2 border-b-2 font-medium text-sm focus:outline-none ${
               activeTab === 'past'
                 ? 'border-black text-black'
-                : 'border-transparent text-gray-500 hover:text-black'
+                : 'border-transparent text-black hover:text-black'
             }`}
           >
-            <span className="mr-2">🕒</span>
+            <FaHistory className="w-5 h-5 mr-2" />
             Past Projects
           </button>
         </div>
@@ -138,21 +102,35 @@ export default function Projects() {
           <motion.div
             key={`${activeTab}-${index}`}
             variants={itemVariants}
-            className="bg-white rounded-lg border border-[#fafafa] hover:shadow-md transition-shadow cursor-pointer overflow-hidden"
+            className="bg-white rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer overflow-hidden"
             whileHover={{ scale: 1.01 }}
             onClick={() => project.link && window.open(project.link, '_blank')}
           >
-            {/* Project Image */}
-            <div className="relative w-full h-48 bg-[#fafafa]">
+            {/* Project Image/Video */}
+            <div className="relative w-full h-48 bg-gray-200">
               {project.image ? (
-                <Image
-                  src="/api/placeholder/800/400"
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
+                project.image.endsWith('.mp4') ? (
+                  <video
+                    src={project.image}
+                    className="object-cover w-full h-full"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    ref={(el) => {
+                      if (el) el.playbackRate = 2.0;
+                    }}
+                  />
+                ) : (
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
+                )
               ) : (
-                <div className="absolute inset-0 flex items-center justify-center bg-[#fafafa]">
+                <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-black">
                   {project.icon}
                 </div>
               )}
@@ -161,19 +139,19 @@ export default function Projects() {
             {/* Project Info */}
             <div className="p-5">
               <div className="flex items-start mb-2">
-                <div className="mr-2 text-gray-700">
+                <div className="mr-2 text-black">
                   {project.icon}
                 </div>
                 <h3 className="text-lg font-medium text-black">{project.title}</h3>
               </div>
               
-              <p className="text-sm text-gray-600 mb-3">{project.description}</p>
+              <p className="text-sm text-black mb-3">{project.description}</p>
               
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tags && project.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-[#fafafa] text-gray-700 px-2 py-1 rounded"
+                    className="text-xs bg-gray-200 text-black px-2 py-1 rounded"
                   >
                     {tag}
                   </span>
@@ -182,7 +160,7 @@ export default function Projects() {
               
               {/* Project Tag */}
               <div className="mt-4">
-                <span className="inline-block bg-[#fafafa] rounded px-3 py-1 text-sm font-medium text-gray-700">
+                <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-medium text-black">
                   {project.title.split(' ')[0]}
                 </span>
               </div>

@@ -74,7 +74,7 @@ export default function Skills() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
+    <section className="max-w-6xl mx-auto px-6 sm:px-6 lg:px-24 py-8 md:py-10 lg:py-12 bg-white">
       <div className="flex items-center justify-between mb-6">
       <motion.h2 
         initial={{ opacity: 0, y: 20 }}

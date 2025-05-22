@@ -108,17 +108,17 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-black mb-2">Let's Chat</h2>
-          <p className="text-gray-600 mb-4 leading-relaxed">
+          <p className="text-black mb-4 leading-relaxed">
             I would love to connect with you! Whether it's sharing stories, exchanging ideas, or just having a friendly conversation - I'm always excited to meet new people and learn from different perspectives.
           </p>
           <div className="flex items-center gap-2 mb-6">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm text-gray-600">Online</span>
+            <span className="text-black">Online</span>
           </div>
           
           {/* Social Links */}
           <div className="space-y-3">
-            <p className="text-sm font-medium text-gray-700">Connect with me</p>
+            <p className="text-black font-medium">Connect with me</p>
             <div className="flex flex-wrap gap-3">
               {socialLinks.map((social, index) => (
                 <motion.a
@@ -126,7 +126,7 @@ export default function Contact() {
                   href={social.url}
                   target={social.name !== 'Email' ? "_blank" : undefined}
                   rel={social.name !== 'Email' ? "noopener noreferrer" : undefined}
-                  className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md bg-gray-50 text-gray-600 transition-all duration-200 ${social.color} hover:bg-gray-100`}
+                  className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md bg-gray-50 text-black transition-all duration-200 ${social.color} hover:bg-gray-100`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                   transition={{ duration: 0.3, delay: 0.3 + (index * 0.1) }}
@@ -150,7 +150,7 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name field */}
             <motion.div variants={itemVariants}>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="name" className="block text-sm font-medium text-black mb-1">
                 Name <span className="text-gray-500">*</span>
               </label>
               <input
@@ -167,7 +167,7 @@ export default function Contact() {
             
             {/* Email field */}
             <motion.div variants={itemVariants}>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-medium text-black mb-1">
                 Email <span className="text-gray-500">*</span>
               </label>
               <input
@@ -184,7 +184,7 @@ export default function Contact() {
             
             {/* Message field */}
             <motion.div variants={itemVariants}>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="message" className="block text-sm font-medium text-black mb-1">
                 Message <span className="text-gray-500">*</span>
               </label>
               <textarea
@@ -268,7 +268,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-3 bg-red-50 text-red-800 rounded-md text-sm"
+                className="p-3 bg-red-50 text-black rounded-md text-sm"
               >
                 There was an error sending your message. Please try again later.
               </motion.div>

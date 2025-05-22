@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { FaHeart } from 'react-icons/fa';
-import { GiFlowers } from 'react-icons/gi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,30 +33,12 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="relative py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-24 bg-black text-white overflow-hidden"
+      className="py-16 md:py-20 lg:py-24 px-4 sm:px-4 lg:px-14 bg-black text-white"
       initial="hidden"
       animate="visible"
       variants={footerVariants}
     >
-      {/* Flower Decorations */}
-      <motion.div
-        className="absolute top-10 left-10 text-pink-600 opacity-50"
-        initial={{ opacity: 0, rotate: -10 }}
-        animate={{ opacity: 0.5, rotate: 0 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <GiFlowers size={40} />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-10 right-10 text-pink-600 opacity-50"
-        initial={{ opacity: 0, rotate: 10 }}
-        animate={{ opacity: 0.5, rotate: 0 }}
-        transition={{ duration: 1, delay: 0.7 }}
-      >
-        <GiFlowers size={40} />
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center space-y-4">
           {/* Copyright and Made with love */}
           <div className="text-center">

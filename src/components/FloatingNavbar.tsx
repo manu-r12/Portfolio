@@ -152,9 +152,9 @@ export default function FloatingNavbar() {
         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
       >
         {isMenuOpen ? (
-          <FaTimes className="w-5 h-5 text-gray-600" />
+          <FaTimes className="w-5 h-5 text-black" />
         ) : (
-          <FaBars className="w-5 h-5 text-gray-600" />
+          <FaBars className="w-5 h-5 text-black" />
         )}
       </button>
 
@@ -174,10 +174,10 @@ export default function FloatingNavbar() {
                 <Link
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                      className={`flex items-center space-x-2 px-4 py-3 text-sm font-medium transition-colors ${
+                      className={`flex items-center space-x-2 px-4 py-3 text-sm transition-colors ${
                     activeSection === link.href.replace('#', '')
                           ? 'text-black bg-gray-50'
-                          : 'text-gray-600 hover:text-black hover:bg-gray-50'
+                          : 'text-black hover:text-black hover:bg-gray-50'
                   }`}
                 >
                       <span className="w-5 h-5">{link.icon}</span>
