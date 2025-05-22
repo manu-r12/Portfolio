@@ -60,7 +60,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
         setShowLoadingScreen(false);
         setTimeout(() => {
           onLoadingComplete();
-        }, 500); // Wait for exit animation to complete
+        }, 500); 
       }, 500);
       
       return () => clearTimeout(timer);
@@ -126,8 +126,6 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
               </motion.div>
             </AnimatePresence>
           </div>
-          
-          <p className="mt-8 text-sm text-gray-600">Loading amazing experiences...</p>
         </motion.div>
       )}
     </AnimatePresence>

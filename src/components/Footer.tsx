@@ -33,7 +33,7 @@ export default function Footer() {
 
   return (
     <motion.footer 
-      className="py-8 px-6 border-t border-[#fafafa]"
+      className="py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-24"
       initial="hidden"
       animate="visible"
       variants={footerVariants}
@@ -42,10 +42,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Left side - Copyright and Made with love */}
           <div className="text-center md:text-left">
-            <p className="text-gray-600 mb-2">
+            <p className="text-black mb-2">
               © {currentYear} Manu. All rights reserved.
             </p>
-            <p className="text-gray-600 flex items-center justify-center md:justify-start gap-1">
+            <p className="text-black flex items-center justify-center md:justify-start gap-1">
               Made with <FaHeart className="text-pink-500 animate-pulse" /> by Manu
             </p>
           </div>
@@ -55,9 +55,9 @@ export default function Footer() {
             className="text-center md:text-right"
             variants={quoteVariants}
           >
-            <blockquote className="text-gray-600 italic">
+            <blockquote className="text-black italic">
               "The important thing is to not stop questioning. Curiosity has its own reason for existing."
-              <footer className="text-sm mt-1 text-gray-500">— Albert Einstein</footer>
+              <footer className="text-sm mt-1 text-gray-800">— Albert Einstein</footer>
             </blockquote>
           </motion.div>
         </div>

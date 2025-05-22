@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaCheckCircle, FaInstagram, FaGithub, FaMedium, FaEnvelope } from 'react-icons/fa';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -30,7 +30,7 @@ export default function Contact() {
       // Create mailto link with pre-filled data
       const subject = `Message from ${formData.name}`;
       const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-      const mailtoLink = `mailto:your-email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailtoLink = `mailto:manurajbhar12@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       
       // Open default email client
       window.location.href = mailtoLink;
@@ -49,6 +49,34 @@ export default function Contact() {
       setTimeout(() => setSubmitStatus('idle'), 5000);
     }
   };
+  
+  // Social links data
+  const socialLinks = [
+    {
+      name: 'Instagram',
+      url: 'https://instagram.com/your-username',
+      icon: <FaInstagram className="w-4 h-4" />,
+      color: 'hover:text-pink-500'
+    },
+    {
+      name: 'GitHub',
+      url: 'https://github.com/your-username',
+      icon: <FaGithub className="w-4 h-4" />,
+      color: 'hover:text-black'
+    },
+    {
+      name: 'Medium',
+      url: 'https://medium.com/@your-username',
+      icon: <FaMedium className="w-4 h-4" />,
+      color: 'hover:text-green-600'
+    },
+    {
+      name: 'Email',
+      url: 'mailto:manurajbhar12@gmail.com',
+      icon: <FaEnvelope className="w-4 h-4" />,
+      color: 'hover:text-blue-500'
+    }
+  ];
   
   // Animation variants
   const containerVariants = {
@@ -80,9 +108,36 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-3xl font-bold text-black mb-2">Let's Chat</h2>
+          <p className="text-gray-600 mb-4 leading-relaxed">
+            I would love to connect with you! Whether it's sharing stories, exchanging ideas, or just having a friendly conversation - I'm always excited to meet new people and learn from different perspectives.
+          </p>
           <div className="flex items-center gap-2 mb-6">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             <span className="text-sm text-gray-600">Online</span>
+          </div>
+          
+          {/* Social Links */}
+          <div className="space-y-3">
+            <p className="text-sm font-medium text-gray-700">Connect with me</p>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={social.name}
+                  href={social.url}
+                  target={social.name !== 'Email' ? "_blank" : undefined}
+                  rel={social.name !== 'Email' ? "noopener noreferrer" : undefined}
+                  className={`flex items-center gap-2 px-3 py-2 text-sm rounded-md bg-gray-50 text-gray-600 transition-all duration-200 ${social.color} hover:bg-gray-100`}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                  transition={{ duration: 0.3, delay: 0.3 + (index * 0.1) }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {social.icon}
+                  <span>{social.name}</span>
+                </motion.a>
+              ))}
+            </div>
           </div>
         </motion.div>
         
