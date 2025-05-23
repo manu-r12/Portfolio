@@ -1,77 +1,34 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import Image from 'next/image';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { CldImage } from 'next-cloudinary';
 import { Photo, photos } from '@/data/GalleryData';
 
 export default function Gallery() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
-  const [activeCategory, setActiveCategory] = useState<string>('all');
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [isGalleryOpen, setIsGalleryOpen] = useState(false);
-
-  const categories = ['all', ...Array.from(new Set(photos.map(photo => photo.category)))];
-
-  // Filter photos based on active category
-  const filteredPhotos = activeCategory === 'all' 
-    ? photos 
-    : photos.filter(photo => photo.category === activeCategory);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   // Show only the first 3 photos in the main view
   const previewPhotos = photos.slice(0, 3);
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+  const handlePhotoClick = (photo: Photo) => {
+    setSelectedId(photo.id);
+    setSelectedPhoto(photo);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
-  const overlayVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { duration: 0.3 }
-    },
-    exit: { 
-      opacity: 0,
-      transition: { duration: 0.3 }
-    }
-  };
-
-  const contentVariants = {
-    hidden: { opacity: 0, scale: 0.98 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { duration: 0.3, delay: 0.1 }
-    },
-    exit: { 
-      opacity: 0, 
-      scale: 0.98,
-      transition: { duration: 0.2 }
-    }
+  const handleClose = () => {
+    setSelectedId(null);
+    setSelectedPhoto(null);
   };
 
   return (
-    <section ref={ref} id="gallery" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white">
+    <section ref={ref} id="gallery" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-24 py-12 md:py-16 lg:py-20 bg-white min-h-[500px]">
       <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 1, y: 0 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5 }}
         className="text-3xl font-bold text-black mb-6"
@@ -81,38 +38,30 @@ export default function Gallery() {
 
       {/* Preview Grid - Always showing 3 photos */}
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6"
       >
         {previewPhotos.map((photo) => (
           <motion.div
             key={photo.id}
-            variants={itemVariants}
-            className="relative aspect-auto overflow-hidden rounded-lg cursor-pointer group"
-            onClick={() => setSelectedPhoto(photo)}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
+            layoutId={photo.id}
+            onClick={() => handlePhotoClick(photo)}
+            className="cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 aspect-[4/3] relative"
           >
-            {/* Placeholder for actual images - to be replaced with your photos */}
-            <div className="relative w-full h-64">
-              <Image
-                src={`/api/placeholder/${photo.width}/${photo.height}`}
-                alt={photo.alt}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center px-4">
-                  <p className="font-medium">{photo.alt}</p>
-                  <p className="text-sm mt-1 capitalize">{photo.category}</p>
-                </div>
-              </div>
-            </div>
+            <CldImage
+              src={photo.src}
+              width={photo.width}
+              height={photo.height}
+              alt="Gallery image"
+              className="w-full h-full object-cover absolute top-0 left-0"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                '<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="400" fill="#f3f4f6"/></svg>'
+              ).toString('base64')}`}
+            />
           </motion.div>
         ))}
       </motion.div>
@@ -140,15 +89,11 @@ export default function Gallery() {
         {isGalleryOpen && (
           <motion.div
             className="fixed inset-0 bg-white z-50 overflow-y-auto"
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
-            <motion.div
-              className="min-h-screen p-4 sm:p-6 md:p-8"
-              variants={contentVariants}
-            >
+            <div className="min-h-screen p-4 sm:p-6 md:p-8">
               <div className="max-w-6xl mx-auto">
                 {/* Header with close button */}
                 <div className="flex justify-between items-center mb-8">
@@ -164,99 +109,81 @@ export default function Gallery() {
                   </button>
                 </div>
 
-                {/* Category Filters */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => setActiveCategory(category)}
-                      className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
-                        activeCategory === category
-                          ? 'bg-black text-white'
-                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                      }`}
-                    >
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
-                    </button>
-                  ))}
-                </div>
-
                 {/* Gallery Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {filteredPhotos.map((photo) => (
-                    <div
+                  {photos.map((photo) => (
+                    <motion.div
                       key={photo.id}
-                      className="relative aspect-auto overflow-hidden rounded-lg cursor-pointer group"
-                      onClick={() => setSelectedPhoto(photo)}
+                      layoutId={photo.id}
+                      onClick={() => handlePhotoClick(photo)}
+                      className="cursor-pointer overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 aspect-[4/3] relative"
                     >
-                      <div className="relative w-full h-64 md:h-72">
-                        <Image
-                          src={`/api/placeholder/${photo.width}/${photo.height}`}
-                          alt={photo.alt}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        
-                        {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 flex items-center justify-center">
-                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white text-center px-4">
-                            <p className="font-medium">{photo.alt}</p>
-                            <p className="text-sm mt-1 capitalize">{photo.category}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <CldImage
+                        src={photo.src}
+                        width={photo.width}
+                        height={photo.height}
+                        alt="Gallery image"
+                        className="w-full h-full object-cover absolute top-0 left-0"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                          '<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="400" fill="#f3f4f6"/></svg>'
+                        ).toString('base64')}`}
+                      />
+                    </motion.div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Lightbox for selected photo */}
       <AnimatePresence>
-        {selectedPhoto && (
+        {selectedId && selectedPhoto && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-90 z-[60] flex items-center justify-center p-4"
-            onClick={() => setSelectedPhoto(null)}
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+            onClick={handleClose}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative max-w-full max-h-full"
+              layoutId={selectedId}
+              className="relative max-w-4xl w-full"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative">
-                <Image
-                  src={`/api/placeholder/${selectedPhoto.width}/${selectedPhoto.height}`}
-                  alt={selectedPhoto.alt}
-                  width={selectedPhoto.width}
-                  height={selectedPhoto.height}
-                  className="max-h-[85vh] w-auto object-contain"
-                />
-                
-                <button
-                  onClick={() => setSelectedPhoto(null)}
-                  className="absolute top-4 right-4 bg-white rounded-full p-2"
-                  aria-label="Close"
+              <CldImage
+                src={selectedPhoto.src}
+                width={selectedPhoto.width}
+                height={selectedPhoto.height}
+                alt="Selected gallery image"
+                className="w-full h-auto rounded-lg"
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                quality="auto"
+                loading="eager"
+              />
+              <button
+                onClick={handleClose}
+                className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75 transition-opacity"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              
-              <div className="bg-white p-4 mt-2">
-                <h3 className="text-xl font-medium text-black">{selectedPhoto.alt}</h3>
-                <p className="text-sm text-gray-600 mt-1 capitalize">{selectedPhoto.category}</p>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </motion.div>
           </motion.div>
         )}

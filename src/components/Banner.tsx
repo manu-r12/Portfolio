@@ -46,6 +46,7 @@ export default function Banner({
     setIsEditing(false);
   };
 
+  
   const bannerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -112,6 +113,18 @@ export default function Banner({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
+        {/* Manushyan Logo */}
+        <motion.div 
+          className="absolute bottom-3 left-4 z-10 hidden sm:block"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <h1 className="text-2xl font-bold text-black drop-shadow-md">
+            आदिमनु.
+          </h1>
+        </motion.div>
+
         {/* Banner Image */}
         <motion.div
           initial={{ scale: 1.1 }}

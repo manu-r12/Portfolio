@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
-import { getSpotifyMusicStatus, SpotifyMusicStatus, CurrentMusic, LastPlayedSong } from '@/spotify/SpotifyAPI';
+import { getSpotifyMusicStatus, SpotifyMusicStatus } from '@/spotify/SpotifyAPI';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export default function SpotifyPlayer() {
@@ -13,6 +13,7 @@ export default function SpotifyPlayer() {
   const iconRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
+
     const fetchMusicStatus = async () => {
       try {
         const status = await getSpotifyMusicStatus();
@@ -25,6 +26,7 @@ export default function SpotifyPlayer() {
     };
 
     fetchMusicStatus();
+    // refresh every 10 seconds
     const interval = setInterval(fetchMusicStatus, 10000); 
 
     return () => clearInterval(interval);

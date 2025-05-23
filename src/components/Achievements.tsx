@@ -22,21 +22,21 @@ export default function Achievements() {
   const achievements: Achievement[] = [
     {
       icon: '🏅',
-      title: 'Winner – Apple Swift Student Challenge 2025',
-      description: 'Selected by Apple for building an innovative Swift Playground that showcases creativity, technical depth, and user-focused design. Among 350 winners worldwide recognized at WWDC.',
-      date: 'Apr 2025',
-      link: 'https://developer.apple.com/swift-student-challenge/',
-      image: '/images/ssc.jpg',
-      tag: 'Apple'
-    },
-    {
-      icon: '🏅',
       title: 'Google Summer of Code 2025 Contributor',
       description: 'Selected by Google to contribute as an iOS Software Developer with the Open Transit Software Foundation (OneBusAway). Working under the mentorship of Aaron Brethorst, I\'m dedicating this summer to building impactful open-source transit tools and giving back to the community that shaped me.',
       date: 'Jun-Sep 2025',
       link: 'https://summerofcode.withgoogle.com/',
       image: '/images/gsoc.jpeg',
       tag: 'Google'
+    },
+    {
+      icon: '🏅',
+      title: 'Winner – Apple Swift Student Challenge 2025',
+      description: 'Selected by Apple for building an innovative Swift Playground that showcases creativity, technical depth, and user-focused design. Among 350 winners worldwide recognized at WWDC.',
+      date: 'Apr 2025',
+      link: 'https://developer.apple.com/swift-student-challenge/',
+      image: '/images/ssc.jpg',
+      tag: 'Apple'
     }
   ];
 
@@ -86,13 +86,16 @@ export default function Achievements() {
             onClick={() => achievement.link && window.open(achievement.link, '_blank')}
           >
             {/* Achievement Image */}
-            <div className="relative w-full h-48 bg-gray-100">
+            <div className="relative w-full h-48 bg-gray-100 border-b-gray-200">
               {achievement.image ? (
                 <Image
                   src={achievement.image}
                   alt={achievement.title}
                   fill
                   className="object-cover"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/w8AAn8B9p6Q2wAAAABJRU5ErkJggg=="
                 />
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-200 text-4xl">
@@ -102,7 +105,7 @@ export default function Achievements() {
             </div>
             
             {/* Achievement Info */}
-            <div className="p-5">
+            <div className="p-5 border-t-1 border-t-gray-300">
               <div className="flex items-start mb-2">
                 <div className="mr-2 text-xl">{achievement.icon}</div>
                 <h3 className="text-lg font-medium text-black">{achievement.title}</h3>

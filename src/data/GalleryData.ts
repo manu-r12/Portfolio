@@ -1,83 +1,63 @@
 export interface Photo {
     id: string;
     src: string;
-    alt: string;
     width: number;
     height: number;
-    category: string;
   }
   
 export const photos: Photo[] = [
     {
       id: '1',
-      src: '/photography/photo1.jpg',
-      alt: 'Mountain landscape',
+      src: 'Gallery_photogrophy/jnwhiidhes1jkxt6z2w5',
       width: 1200,
-      height: 800,
-      category: 'nature'
+      height: 800
     },
     {
       id: '2',
-      src: '/photography/photo2.jpg',
-      alt: 'Urban scene',
+      src: 'Gallery_photogrophy/swxhhyvdpp1k2wxsmddz',
       width: 800,
-      height: 1200,
-      category: 'urban'
+      height: 1200
     },
     {
       id: '3',
-      src: '/photography/photo3.jpg',
-      alt: 'Portrait photography',
+      src: 'Gallery_photogrophy/lmmbrtd09bshh4o0pfys',
       width: 1200,
-      height: 800,
-      category: 'portrait'
+      height: 800
     },
     {
       id: '4',
-      src: '/photography/photo4.jpg',
-      alt: 'Nature scene',
+      src: 'Gallery_photogrophy/ilp75cbvai8thbokvbye',
       width: 1200,
-      height: 900,
-      category: 'nature'
+      height: 900
     },
     {
       id: '5',
-      src: '/photography/photo5.jpg',
-      alt: 'Urban architecture',
+      src: 'Gallery_photogrophy/pen9eq32fnxxgydjq5uj',
       width: 800,
-      height: 1200,
-      category: 'urban'
+      height: 1200
     },
     {
       id: '6',
-      src: '/photography/photo6.jpg',
-      alt: 'Portrait close-up',
+      src: 'Gallery_photogrophy/q0spppkuctzan1ziwx3x',
       width: 1200,
-      height: 800,
-      category: 'portrait'
+      height: 800
     },
     {
       id: '7',
-      src: '/photography/photo7.jpg',
-      alt: 'Nature waterfall',
+      src: 'Gallery_photogrophy/rvptttyqs5okjq8m9e2z',
       width: 900,
-      height: 1200,
-      category: 'nature'
+      height: 1200
     },
     {
       id: '8',
-      src: '/photography/photo8.jpg',
-      alt: 'Urban street',
+      src: 'Gallery_photogrophy/wqwcozp3do7lkbyppps7',
       width: 1200,
-      height: 800,
-      category: 'urban'
+      height: 800
     },
     {
       id: '9',
-      src: '/photography/photo9.jpg',
-      alt: 'Portrait in nature',
+      src: 'Gallery_photogrophy/nzzphaw4muik91r2l1ml',
       width: 800,
-      height: 1200,
-      category: 'portrait'
-    },
+      height: 1200
+    }
   ];
