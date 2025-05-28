@@ -54,19 +54,19 @@ export default function Contact() {
   const socialLinks = [
     {
       name: 'Instagram',
-      url: 'https://instagram.com/your-username',
+      url: 'https://www.instagram.com/manovaha_/',
       icon: <FaInstagram className="w-4 h-4" />,
       color: 'hover:text-pink-500'
     },
     {
       name: 'GitHub',
-      url: 'https://github.com/your-username',
+      url: 'https://github.com/manu-r12',
       icon: <FaGithub className="w-4 h-4" />,
       color: 'hover:text-black'
     },
     {
       name: 'Medium',
-      url: 'https://medium.com/@your-username',
+      url: 'https://medium.com/@manurajbhar12',
       icon: <FaMedium className="w-4 h-4" />,
       color: 'hover:text-green-600'
     },
