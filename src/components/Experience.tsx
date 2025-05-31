@@ -39,9 +39,9 @@ export default function Experience() {
         links: {
           github: 'https://github.com/OneBusAway/onebusaway-ios',
           pullRequests: [
-            'https://github.com/OneBusAway/onebusaway-ios/pull/123',
-            'https://github.com/OneBusAway/onebusaway-ios/pull/456',
-            'https://github.com/OneBusAway/onebusaway-ios/pull/789'
+            'https://github.com/OneBusAway/onebusaway-ios/pull/753',
+            'https://github.com/OneBusAway/onebusaway-ios/pull/778',
+            'https://github.com/OneBusAway/onebusaway-ios/pull/776'
           ]
         }
       }
